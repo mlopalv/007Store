@@ -1,3 +1,4 @@
+clear
 "Realizamos el primer commit"
 # Proyecto007
 ## Tematica: Sitio web que servira como plataforma donde los asitentes a una convencion del 007 podran:

@@ -1,0 +1,122 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;    
+}
+/*simulación de espacio del header*/
+.seccionHeader {
+  width: 100vw;
+  /*max-width: 900px;*/
+  border: dotted 2px red;
+  text-align: center;
+  font-size:24px;
+  font-weight: bold;
+  padding: 20px 0px 20px 0px;
+  margin-bottom: 10px;
+}
+
+/*main*/
+.main {
+  /*width: 100%;*/
+}
+
+
+/*Sección que engloba toda la descripción del producto*/
+.seccionGeneralProducto {
+  /*width: 100vw;*/
+  display: flex;
+  border: dotted 2px red;
+  /*padding: 10px;*/
+  padding: 10px 120px 10px 120px;
+  justify-content: space-evenly;
+  
+}
+
+/*Estilos sección de imágenes del producto*/
+.seccionImagenesDelProducto {
+  width: 100vw;
+  border: dotted 2px red;
+  
+}
+
+.seccionImagenPrincipalProducto {
+  width: 40vw;
+  height: 70vh;
+  border: dotted 2px red;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.imagenPrincipalDelProducto {
+  width: 40vw;
+  height: 70vh;
+}
+
+.seccionImagenesAdicionalesProducto {
+  display: flex;
+  justify-content: space-between;
+  
+  /*border: dotted 2px red;*/
+}
+
+.articuloImagenAdicionalProducto {
+  width: 10vw;
+  height: 15vh;
+  border: dotted 2px red;
+  padding: 0px;  
+}
+
+.imagenAdicionalDelProducto {
+  width: 100%;
+  height: 100%;
+  border: dotted 2px red;
+
+}
+
+/*Estilos sección de descrición y pagos del producto*/
+.seccionDescripcionYAddToCartDelPropducto {
+  /*width: 90%;  */
+  padding: 0px 10px 10px 10px;
+  margin-left: 10px;
+  border: dotted 2px red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.seccionDescripcionDelProducto {
+  margin-bottom: 10px;
+}
+
+.headerDescripcionDelProducto {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 18px;
+  border: dotted 2px red;  
+}
+
+.articuloDescripcionDelProducto {
+  margin-bottom: 10px;
+  border: dotted 2px red;
+}
+
+.seccionAdicionarATarjeta {
+  border: dotted 2px red;
+  padding: 10px;
+}
+
+.articuloAdicionarATarjeta {
+  padding: 10px;
+  text-align: center;
+}
+
+.botonAddToCart {
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+.boton {
+  padding: 5px;
+  font-weight: bold;
+}
