@@ -19,8 +19,8 @@ app.get('/login', (req, res) => {
     res.sendFile(path.resolve(__dirname, "./views/login.html"));
 });
 
-app.get('/productDetails', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/productDetails.html"));
+app.get('/product', (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./views/producto.html"));
 });
 
 app.listen(3000, () => {
