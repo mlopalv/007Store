@@ -41,3 +41,6 @@ clear
 ## Me gusta tomar cursos todo el tiempo de diversas tecnologias. He tomado cursos de:
 ## Animacion 3D en Blender, diseño en Adobe y Corel Draw, Edicion de video en Vegas, etc
 ## Se crear sitios web en PHP y Java Server Pages 
+
+## Link al site de administracion del proyecto:
+## https://github.com/users/ChevoGomezVillarreal/projects/1/views/1
