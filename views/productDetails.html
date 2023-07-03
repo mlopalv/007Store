@@ -17,20 +17,26 @@
   <header>
     <section class="seccionHeader">
       <p>Simulación header</p>
-    </section>
+    </section>    
   </header>
-  <main class="maincd">
+  <main class="main">
     <!--sección general del producto-->
     <section class="seccionGeneralProducto">
       <!--sección imágenes del producto-->
       <section class="seccionImagenesDelProducto">
         <!--Sección imagen grande del producto-->
         <section class="seccionImagenPrincipalProducto">
-          <img src="/images/productDetails/productDetailsSample1.webp" class="imagenPrincipalDelProducto"/>          
+          <div class="divLeftArrowArticuloImagenPrincipalProducto">
+            <i class="fa-regular fa-square-caret-left iconoFlecha"></i>
+          </div>
+          <img src="/images/productDetails/productDetailsSample1.webp" class="imagenPrincipalDelProducto"/>
+          <div class="divRightArrowArticuloImagenPrincipalProducto">
+            <i class="fa-regular fa-square-caret-right iconoFlecha"></i>
+          </div>          
         </section>
         <!--Sección imagenes pequeñas del producto-->
-        <section class="seccionImagenesAdicionalesProducto">
-          <article class="articuloImagenAdicionalProducto">
+        <section class="seccionImagenesAdicionalesProducto">          
+          <article class="articuloImagenAdicionalProducto">            
             <img src="/images/productDetails/productDetailsSample1.webp" class="imagenAdicionalDelProducto"/> 
           </article>
           <article class="articuloImagenAdicionalProducto">
@@ -79,7 +85,10 @@
               creatives and collectors. All Montegrappa writing instruments are made at the company’s headquarters
               beneath Monte Grappa in Bassano del Grappa, Italy.
             </p>
-
+          </article>
+          <!--Precion del producto-->
+          <article class="articlePrecioProducto">
+            $ 300 
           </article>
         </section>
         <!--sección de adicionar a tarjeta-->
@@ -91,6 +100,7 @@
           </article>
           <article class="articuloAdicionarATarjeta">
             <button class="boton">ADD TO CART</button>
+            <button class="boton">VIEW CART</button>
           </article>
         </section>
       </section>

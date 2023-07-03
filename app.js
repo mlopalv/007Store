@@ -20,7 +20,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/product', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/producto.html"));
+    res.sendFile(path.resolve(__dirname, "./views/productDetails.html"));
 });
 
 app.listen(3000, () => {
