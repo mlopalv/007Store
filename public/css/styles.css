@@ -3,9 +3,13 @@
 }
 
 html {
-    width:100vw;
     font-family: "Georgia", Cambria, Times New Roman, Times, serif;    
     font-size: 16px;
+}
+
+body {
+    width: 97vw;
+    margin-right: 5px;
 }
 
 img {
@@ -26,6 +30,11 @@ footer ul {
 
 footer li {
     margin-bottom: 20px;
+}
+
+a {
+    color:white;
+    text-decoration: none;
 }
 
 .main-nav {
