@@ -36,7 +36,7 @@ a:hover {
 
 .header {
     /* width: 100vw; */
-    height: 70px;
+    /*height: 70px;*/
     background-color: #e6e9f1;
     display: flex;
     flex-direction: column;
@@ -59,7 +59,9 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /*
     height: calc(100vh - 70px);
+    */
 }
 
 .section-body-cart {
@@ -67,7 +69,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: calc(100vh - 70px);
+    /*height: calc(100vh - 70px);*/
     background-color: #fff;
 }
 
@@ -76,7 +78,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     width: 500px;
-    height: 100%;
+    /*height: 100%;*/
     justify-content: center;
 }
 
@@ -148,7 +150,8 @@ a:hover {
 }
 
 .cont-cart {
-    width: 800px;
+    width: 100%;
+    flex: column;
 }
 
 .title {
@@ -189,16 +192,23 @@ a:hover {
 
 .cont-product {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
-    height: 160px;
+    /*height: 160px;*/
 }
 
 .cont-info-product {
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+.cont-info-product-top {
+    display:flex;
+    flex-direction: column;
+    margin: 20px 10px;
 }
 
 .text-info {
@@ -240,7 +250,7 @@ a:hover {
 .text-price-unit {
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    /*justify-content: end;*/
 }
 
 .margin-bottom {
@@ -248,17 +258,18 @@ a:hover {
 }
 
 .cont-summary-total {
+    width:100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    /*height: 100%;*/
 }
 
 .text-title-product,
 .text-total-product {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
 
 .button-total {
@@ -288,13 +299,11 @@ a:hover {
 }
 
 
-.frequently {
-    margin-top: 60px;
-}
 
 .cont-cards {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
@@ -308,11 +317,13 @@ a:hover {
     border-radius: 7px;
     background-color: #e6e9f1;
     transition: 0.5s ease-in-out;
+    margin-bottom: 10px;
 }
 .card1:hover,
 .card2:hover,
 .card3:hover{
     transform: scale(1.1);
+    
 }
 .cont-image-card{
     width: 100%;
@@ -337,4 +348,35 @@ a:hover {
     font-family: 'Rubik', sans-serif;
     color: #4a525d;
     font-size: 15px;
+}
+
+@media (min-width:400px) {
+    .cont-cards {
+        flex-direction: row;
+    }
+}
+
+@media (min-width:600px) {
+
+
+    .cont-product {
+        flex-direction: row;
+    }
+
+    .cont-info-product {
+        
+        flex-direction: row;
+    }
+
+    /*
+    .cont-info-product-top {
+        display:flex;
+        flex-direction: row;
+    }
+    */
+    .text-title-product,
+    .text-total-product {
+
+        justify-content: space-between;
+    }
 }
