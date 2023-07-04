@@ -23,6 +23,11 @@ app.get('/product', (req, res) => {
     res.sendFile(path.resolve(__dirname, "./views/productDetails.html"));
 });
 
+app.get('/cart', (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./views/productCart.html"));
+});
+
+
 app.listen(3000, () => {
     console.log("Servidor corriendo en puerto 3000");
     console.log("Folder Path = " + publicPath);
