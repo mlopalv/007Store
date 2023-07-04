@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>The 007 Convention</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />        
+        <script src="https://kit.fontawesome.com/a215289790.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/styles.css" >
+
+    </head>
+    <body>
+        <header>
+            <div>
+                <img src="images/logo-2.png" alt="logo-2">
+            </div>
+            <div>
+                <nav>
+                    <ul class="main-nav">
+                        <li style="width:15%"><a>HOME</a></li>
+                        <li style="width:25%"><a>PRODUCTOS</a></li>
+                        <li style="width:20%"><a>CARRITO</a></li>
+                        <li style="width:25%"><a>REGISTRO</a></li>
+                        <li style="width:15%"><a>LOGIN</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <!--
+            <div class="main-nav">
+                <div>HOME</div>
+                <div>PRODUCTOS</div>
+                <div>CARRITO</div>
+                <div>REGISTRO</div>
+                <div>LOGIN</div>
+            </div>
+            -->            
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="section-body-register">
+        <div class="cont-register">
+            <div class="title">
+                <h2 class="text-title">Formulario de Registro</h2>
+            </div>
+            <div>
+                <div class="second-title">
+                    <h3 class="text-second-title">Enroll</h3>
+                </div>
+                    <div class="text-info-below">
+                        <div>
+                            <h3 class="text-info margin-bottom">Sign up for 007 news from the world of James Bond.
+                                    Receive exclusive updates and content from behind-the-scenes stories, to the latest product launches plus film clips and trivia from the Bond archive.</h3>                              
+                        </div>
+                            <div class="cont-image">
+                                 <img class="image" src="https://www.007.com/wp-content/uploads/2020/05/B25_02653_R.jpg" alt="">
+                    </div>
+                        <div class="text-title-firstname">
+                            <h3 class="text-info">First Name:</h3>
+                            <h3 class="text-info"><span id="first name">0</span></h3>
+                        </div>
+                        <div class="text-total-lastname">
+                            <h3 class="text-info">Last Name:</h3>
+                            <h3 class="text-info"><span id="last name">0</span></h3>
+                        </div>
+                        <div class="text-total-email">
+                            <h3 class="text-info">Email Adress:</h3>
+                            <h3 class="text-info"><span id="email adress">0</span></h3>
+                        </div>
+                        <div class="text-total-password">
+                            <h3 class="text-info">Create Password:</h3>
+                            <h3 class="text-info"><span id="password">0</span></h3>
+                        <div class="cont-button-total">
+                            <button class="button-total">SIGN UP</button>
+                        </div>
+                    </div>
+                </div>
+
+    </section>
+    <main>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
