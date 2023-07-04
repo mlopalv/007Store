@@ -8,8 +8,9 @@ html {
 }
 
 body {
-    width: 97vw;
-    margin-right: 5px;
+    max-width: 1080px;
+    margin: auto;
+    padding: 3vw;
 }
 
 img {
