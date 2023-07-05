@@ -25,12 +25,14 @@ footer {
 }
 
 footer ul {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
     padding: 15px;
 }
 
 footer li {
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 a {
@@ -75,4 +77,44 @@ a {
     flex-direction: column;    
     text-align: center;
     padding: 10px;
+}
+
+.body-page-register input, button {
+    width: 100%;
+    padding:5px 10px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    
+}
+
+.body-page-login input, button {
+    width: 100%;
+    padding:5px 10px;
+    margin: 5px 10px;
+    border-radius: 5px;
+    
+}
+
+.form-reg-user {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    max-width: 400px;
+}
+
+.form-reg-user button {
+    width: 100%;
+}
+
+.form-reg-user button:hover {
+    width: 100%;
+    color: white;
+    background-color: black;
+}
+
+@media (min-width:900px) {
+    footer ul {
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }
