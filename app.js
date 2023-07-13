@@ -7,24 +7,26 @@ const publicPath = path.resolve(__dirname, "./public");
 
 app.use(express.static(publicPath));
 
+app.set('view engine','ejs');
+
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/index.html"));
+    res.render('index');
 });
 
 app.get('/product', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/productDetails.html"));
+    res.render('productDetails');
 });
 
 app.get('/carrito', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/productCart.html"));
+    res.render('productCart');
 });
 
 app.get('/registro', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/register.html"));
+    res.render('register');
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/login.html"));
+    res.render('login');
 });
 
 app.listen(3000, () => {

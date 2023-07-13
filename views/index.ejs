@@ -1,42 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>The 007 Convention</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />        
-        <script src="https://kit.fontawesome.com/a215289790.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/styles.css" >
-
-    </head>
+    <%- include('./partials/head') %>
     <body>
-        <header>
-            <div>
-                <img src="images/logo-2.png" alt="logo-2">
-            </div>
-            <div>
-                <nav>
-                    <ul class="main-nav">
-                        <li style="width:15%"><a href="/" class="a-navbar">HOME</a></li>
-                        <li style="width:25%"><a href="product" class="a-navbar">PRODUCTOS</a></li>
-                        <li style="width:20%"><a href="carrito" class="a-navbar">CARRITO</a></li>
-                        <li style="width:25%"><a href="registro" class="a-navbar">REGISTRO</a></li>
-                        <li style="width:15%"><a href="login" class="a-navbar">LOGIN</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <!--
-            <div class="main-nav">
-                <div>HOME</div>
-                <div>PRODUCTOS</div>
-                <div>CARRITO</div>
-                <div>REGISTRO</div>
-                <div>LOGIN</div>
-            </div>
-            -->            
-        </header>
+        <%- include('./partials/header') %>
         <main>
             <div class="div-main-description">
                 <h2>Bienvenidos al sitio oficial de la Convención 007</h2>
@@ -92,29 +58,7 @@
                 </div>                
             </div>                                 
         </main>
-        <footer>
-            <ul>
-                <li>
-                    <i class="fa-solid fa-address-card"></i><br>
-                    <span class="span-bold"><strong>REGISTRATE</strong></span><br>
-                    <span>Registrate para recibir todas las noticias referentes a la Convencion 007</span>
-                </li>
-                <br>
-                <li>
-                    <i class="fa-sharp fa-solid fa-ticket"></i><br>
-                    <span class="span-bold"><strong>COMPRA TUS ENTRADAS</strong></span><br>
-                    <span>Adquiere tus entradas con tarjeta de credito o paypal </span>
-                </li> 
-                <br>
-                <li>
-                    <i class="fa-solid fa-envelope"></i><br>
-                    <span class="span-bold"><strong>CONTACTANOS</strong></span><br>
-                    <span>Si quieres saber mas acerca de la Convencion 007 ponte en contacto con nosotros</span>
-                </li>
-                <br>   
-                                         
-            </ul>
-        </footer>
+        <%- include('./partials/footer') %>
         <p style="text-align:left">Copyright &copy; 2023 Convenciones Internacionales S.R.L.</p>  
     </body>
 </html>
