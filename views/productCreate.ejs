@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+<%- include('./partials/head') %>
+  <body>
+    <%- include('./partials/header') %>
+    <main>
+       
+        <form action="/" method="GET" class="formProductCreate">
+            <h3 class="headerDescripcionDelProducto">Registro de nuevo producto</h3>
+            <input type="text" name="nombre" placeholder="Nombre del producto" class="formProductCreateEditTextInput">
+            <br>
+            <textarea id="story" name="descripcion" rows="12" class="formProductCreateEditTextInput" placeholder="Descripción del producto">Descripción del producto ...
+            </textarea>            
+            <br>
+            <input type="number" name="costo" class="formProductCreateEditTextInput" placeholder="Costo del producto">
+            <br>                
+            <h3>Fecha de registro del producto</h3>
+            <input type="date" name="fechaRegistro" class="formProductCreateEditTextInput">
+            <br>            
+            <br>                
+            <button type="submit">Enviar</button><br>
+            <button type="reset">Borrar</button><br>
+        </form>
+    </main>
+    <%- include('./partials/footer') %>
+  </body>
+</html>

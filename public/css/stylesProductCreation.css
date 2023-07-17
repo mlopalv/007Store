@@ -1,0 +1,33 @@
+.headerDescripcionDelProducto {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 25px;
+    /*border: dotted 2px red;*/
+}
+  
+
+.formProductCreate {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    max-width: 450px;
+}
+
+.formProductCreateEditTextInput {
+    width: 450px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.formProductCreate button {
+    width: 450px;
+}
+
+.formProductCreate button:hover {
+    width: 450px;
+    padding: 10px;
+    color: white;
+    background-color: black;
+}
