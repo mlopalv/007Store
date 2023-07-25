@@ -11,13 +11,13 @@ app.set('view engine','ejs');
 
 //Requerir las rutas
 const rutasProductos = require('./routes/productos');
-const rutasUsuarios = require('./routes/usuarios');
+/*const rutasUsuarios = require('./routes/usuarios');*/
 const rutasMain = require("./routes/main");
 //const adminRoutes = require('./routes/admin');
 
 //Para usar las rutas
-app.use(adminProductos);
 app.use(rutasMain);
+app.use(rutasProductos);
 //app.use(adminUsuarios);
 //app.use(adminRoutes);
 
