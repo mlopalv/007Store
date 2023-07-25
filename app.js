@@ -9,10 +9,21 @@ app.use(express.static(publicPath));
 
 app.set('view engine','ejs');
 
+//Requerir las rutas
+const adminProductos = require('./routes/adminProductos');
+const adminUsuarios = require('./routes/adminUsuarios');
+//const adminRoutes = require('./routes/admin');
+
+//Para usar las rutas
+app.use(adminProductos);
+app.use(adminUsuarios);
+//app.use(adminRoutes);
+
 app.get('/', (req, res) => {
     res.render('index');
 });
 
+/*
 app.get('/product', (req, res) => {
     res.render('productDetails');
 });
@@ -24,6 +35,7 @@ app.get('/productCreate', (req, res) => {
 app.get('/productEdit', (req, res) => {
     res.render('productEdit');
 });
+*/
 
 app.get('/carrito', (req, res) => {
     res.render('productCart');
