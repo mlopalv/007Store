@@ -3,12 +3,12 @@ const router = express.Router();
 const path = require('path');
 const controllersAdminProdChevo = require(path.resolve(__dirname,'../controllers/chevo/productController'));
 const controllersAdminProdMau = require(path.resolve(__dirname,'../controllers/mauricio/productController'));
-
+/** Chevo **/
 router.get('/products', controllersAdminProdChevo.index);
 router.get('/products/create', controllersAdminProdChevo.create);
 router.get('/products/:id', controllersAdminProdChevo.show);
 router.post('/products/create', controllersAdminProdChevo.save);
-
+/** Mauricio **/
 router.get('/products/:id/edit', controllersAdminProdMau.index);
 router.put('/products/:id', controllersAdminProdMau.index);
 router.delete('/products/:id', controllersAdminProdMau.index);
