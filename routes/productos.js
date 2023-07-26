@@ -47,19 +47,6 @@ Acción de borrado
 //app.use(adminRoutes);
 
 /*
-app.get('/', (req, res) => {
-    res.render('index');
-});
 
-app.get('/product', (req, res) => {
-    res.render('productDetails');
-});
 
-app.get('/productCreate', (req, res) => {
-    res.render('productCreate');
-});
-
-app.get('/productEdit', (req, res) => {
-    res.render('productEdit');
-});
 */
