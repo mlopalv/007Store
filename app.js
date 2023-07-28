@@ -42,17 +42,7 @@ app.get('/productEdit', (req, res) => {
 });
 */
 
-app.get('/carrito', (req, res) => {
-    res.render('productCart');
-});
 
-app.get('/registro', (req, res) => {
-    res.render('register');
-});
-
-app.get('/login', (req, res) => {
-    res.render('login');
-});
 
 app.listen(3000, () => {
     console.log("Servidor corriendo en puerto 3000");
