@@ -15,33 +15,15 @@ app.use(methodOverride("_method"));
 //Indicamos que el template-engine a usar es ejs
 app.set('view engine','ejs');
 
+
 //Requerir las rutas
 const rutasProductos = require('./routes/productos');
-/*const rutasUsuarios = require('./routes/usuarios');*/
 const rutasMain = require("./routes/main");
-//const adminRoutes = require('./routes/admin');
+
 
 //Para usar las rutas
 app.use(rutasMain);
 app.use(rutasProductos);
-//app.use(adminUsuarios);
-//app.use(adminRoutes);
-
-
-/*
-app.get('/product', (req, res) => {
-    res.render('productDetails');
-});
-
-app.get('/productCreate', (req, res) => {
-    res.render('productCreate');
-});
-
-app.get('/productEdit', (req, res) => {
-    res.render('productEdit');
-});
-*/
-
 
 
 app.listen(3000, () => {
