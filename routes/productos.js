@@ -1,19 +1,40 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const multer = require("multer");
+
 const currentPath = path.resolve(__dirname,'../controllers/chevo/productController.js');
-console.log("Esta es la ruta donde buscamos -> "+currentPath);
+
 const controllersAdminProdChevo = require(currentPath);
-const controllersAdminProdMau = require(path.resolve(__dirname,'../controllers/mauricio/productController'));
+const productController = require(path.resolve(__dirname,'../controllers/mauricio/productController'));
+
+//Uso de multer
+const multerDiskStorage = multer.diskStorage(
+    //Objeto literal con dos funciones
+    {
+        destination: function (req, file, cb) {
+            cb(null, "../public/images/avatars");
+        },
+        filename: function (req, file, cb) {
+            cb(null, Date.now() + path.extname(file.originalname));
+        }
+    }
+
+);
+
+
 /** Chevo **/
 /*router.get('/products', controllersAdminProdChevo.index);*/
 router.get('/products/create', controllersAdminProdChevo.create);
 //router.get('/products/:id', controllersAdminProdChevo.show);
 //router.post('/products/create', controllersAdminProdChevo.save);
 /** Mauricio **/
-/*router.get('/products/:id/edit', controllersAdminProdMau.index);
-router.put('/products/:id', controllersAdminProdMau.index);
-router.delete('/products/:id', controllersAdminProdMau.index);*/
+/* Entrega el formulario de edicion de productos */
+router.get('/products/:id/edit', productController.getById);
+/* Actualiza un producto especifico */
+router.put('/products/:id', productController.update);
+/* Borra un producto especifico */
+router.delete('/products/:id', productController.delete);
 
 
 module.exports = router;

@@ -23,11 +23,14 @@
 
 .formProductCreate button {
     width: 450px;
+    margin: auto;
 }
 
 .formProductCreate button:hover {
     width: 450px;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+   
     color: white;
     background-color: black;
 }
