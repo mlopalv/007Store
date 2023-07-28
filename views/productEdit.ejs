@@ -6,21 +6,30 @@
   <body>
     <%- include('./partials/header') %>
     <main>       
-        <form action="/" method="GET" class="formProductCreate">
+        <form action="/products/<%=producto.id%>/?_method=PUT" method="POST" class="formProductCreate">
             <h3 class="headerDescripcionDelProducto">Edición de producto</h3>
-            <input type="text" name="nombre" placeholder="Nombre del producto" class="formProductCreateEditTextInput">
+            <input type="text" name="name" placeholder="Nombre del producto" class="formProductCreateEditTextInput" value="<%=producto.name%>">
             <br>
-            <textarea id="story" name="descripcion" rows="12" class="formProductCreateEditTextInput" placeholder="Descripción del producto">Descripción del producto ...
+            <textarea name="description" rows="12" cols="50" class="formProductCreateEditTextInput" placeholder="Descripción del producto">
+              <% if (producto.description !== null) {%>
+                      <%=producto.description.trim()%>
+              <% }else{ %>
+                      "Descripción del producto ...";
+              <% } %>               
             </textarea>            
             <br>
-            <input type="number" name="costo" class="formProductCreateEditTextInput" placeholder="Costo del producto">
-            <br>                
-            <h3>Fecha de registro del producto</h3>
-            <input type="date" name="fechaRegistro" class="formProductCreateEditTextInput">
+            <input type="number" name="price" class="formProductCreateEditTextInput" placeholder="Precio del producto"
+                value="<%=producto.price%>"> 
+            
+            <input type="image" name="image" class="formProductCreateEditTextInput" placeholder="Imagen producto"
+                value="<%=producto.image%>">               
+            
             <br>            
             <br>                
-            <button type="submit">Enviar</button><br>
-            <button type="reset">Borrar</button><br>
+            <button type="submit">Guardar</button><br>            
+        </form>
+        <form action="/products/<%=producto.id%>/?_method=DELETE" method="POST" class="formProductCreate">
+          <button type="submit">Borrar producto</button><br>
         </form>
     </main>
     <%- include('./partials/footer') %>
