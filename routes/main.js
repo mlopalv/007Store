@@ -22,6 +22,7 @@ router.get('/product', (req, res) => {
     res.render('../views/productDetails');
 });
 
+/*
 router.get('/productCreate', (req, res) => {
     res.render('../views/productCreate');
 });
@@ -29,5 +30,6 @@ router.get('/productCreate', (req, res) => {
 router.get('/productEdit', (req, res) => {
     res.render('../views/productEdit');
 });
+*/
 
 module.exports = router;

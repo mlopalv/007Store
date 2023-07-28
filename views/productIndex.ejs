@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>The 007 Convention</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />        
+        <script src="https://kit.fontawesome.com/a215289790.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/stylesProductIndex.css">
+    </head>
+    <body>
+        <%- include('./partials/header') %>
+        <main>
+            <div class="prodindex-div-topsection">
+                <h1>LISTADO DE PRODUCTOS</h1>
+            </div>
+            <div>
+                <button id="prodindex-but-agregar">AGREGAR ARTICULO</button>
+            </div>
+            <div>
+                <% for(let i=0; i < inventario.length; i++) { %>
+                <ul class="prodindex-div-prodlist">
+                    <li class="linum"><%= i + 1 %></li>
+                    <li class="lidesc"><%= inventario[i].name %></li>
+                    <li class="liver"><i class="fa-solid fa-eye"></i></li>
+                    <li class="liedit"><i class="fa-solid fa-pen"></i></li>
+                    <li class="lidel"><i class="fa-solid fa-trash-can"></i></li>
+                </ul>
+                <% } %>
+            </div>
+        </main>
+        <%- include('./partials/footer') %>
+    </body>
+</html>

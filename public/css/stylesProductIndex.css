@@ -1,0 +1,53 @@
+.prodindex-div-topsection {
+    /*
+    font-size: 12px;
+    list-style-type: none;
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around ;
+    color:white;
+    background-color: black;
+    
+    text-align: center;
+    
+    margin: auto;
+    padding-left: 0px;
+    */
+}
+
+div.prodindex-div-topsection h1, h2, p {
+    
+    text-align: center;
+    
+}
+
+.prodindex-div-prodlist {
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    list-style-type:none;
+}
+
+.prodindex-div-prodlist .linum {
+    width:10%;
+}
+
+.prodindex-div-prodlist .lidesc {
+    width:60%;
+}
+
+.prodindex-div-prodlist .liver {
+    width:10%;
+}
+
+.prodindex-div-prodlist .liedit {
+    width:10%;
+}
+
+.prodindex-div-prodlist .lidel {
+    width:10%;
+}
+
+#prodindex-but-agregar {
+    width:20%;
+}

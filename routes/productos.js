@@ -6,7 +6,7 @@ console.log("Esta es la ruta donde buscamos -> "+currentPath);
 const controllersAdminProdChevo = require(currentPath);
 const controllersAdminProdMau = require(path.resolve(__dirname,'../controllers/mauricio/productController'));
 /** Chevo **/
-/*router.get('/products', controllersAdminProdChevo.index);*/
+router.get('/products', controllersAdminProdChevo.index);
 router.get('/products/create', controllersAdminProdChevo.create);
 //router.get('/products/:id', controllersAdminProdChevo.show);
 //router.post('/products/create', controllersAdminProdChevo.save);
