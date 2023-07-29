@@ -18,8 +18,17 @@
                 <h1>LISTADO DE PRODUCTOS</h1>
             </div>
             <div>
-                <button id="prodindex-but-agregar">AGREGAR ARTICULO</button>
+                <a href='/products/create'>
+                    <button class="GFG" id="prodindex-but-agregar">
+                        AGREGAR ARTICULO
+                    </button>
+                </a>                  
             </div>
+            <!-- De esta manera tambien funciona
+            <form action="/products/create">
+                <input type="submit" value="AGREGAR ARTICULO" />
+            </form>
+            -->
             <div>
                 <% for(let i=0; i < inventario.length; i++) { %>
                 <ul class="prodindex-div-prodlist">
