@@ -14,6 +14,7 @@ module.exports = {
         let temp = {};
         console.log("Vista de listado de productos");
         console.log("El tamano del inventario es: " + inventario.length)
+        /*
         let counter = 0;
         inventario.forEach(element => {
             counter++;
@@ -24,6 +25,7 @@ module.exports = {
             console.log("La imagen es: " + element.image);
             console.log("El precio es: " + element.price + "\n");
         });
+        */
         //console.log(inventario);
         res.render(path.resolve(__dirname,"../../views/productIndex.ejs"), {inventario});
 
@@ -31,5 +33,53 @@ module.exports = {
 
     create: (req, res) => {
         res.render(path.resolve(__dirname,"../../views/productCreate.ejs"));
+    },
+
+    savenew: (req,res) => {
+        console.log('Entrando a save new');
+        
+        console.log('nombre = ' + req.query.nombre);
+        console.log('descripcion = ' + req.query.descripcion);
+        console.log('costo = ' + req.query.costo);
+        
+        let newProd = {
+            id: 100,
+            name: req.query.nombre,
+            description: req.query.descripcion,
+            image: "image",
+            price: Number(req.query.costo)
+        }
+        
+        //newProd = JSON.stringify(newProd);
+
+        let inventario = fs.readFileSync(path.resolve(__dirname,'../../database/productos.json'));
+        inventario = JSON.parse(inventario);
+        
+        const arrayOfIds = [];
+
+        for (let i=0; i < inventario.length; i++) {
+            arrayOfIds.push(inventario[i].id);
+            console.log('Valor de ID = ' + inventario[i].id);
+        };
+
+        counter = 0;
+        arrayOfIds.forEach(element => {
+            counter++;
+            console.log("arrayOfIds [" + counter + "] = " + element);
+        });        
+
+        let maxID = Math.max(...arrayOfIds);
+
+        console.log('Maximo ID = ' + maxID);
+
+        newProd.id = maxID + 1;
+
+        inventario.push(newProd);
+        inventario = JSON.stringify(inventario, null, 4);
+        console.log(inventario);
+        fs.writeFileSync(path.resolve(__dirname,'../../database/productos.json'),inventario);
+        //res.send('Producto agregado');
+        inventario = JSON.parse(inventario);
+        res.render(path.resolve(__dirname,"../../views/productIndex.ejs"), {inventario});
     }
 }

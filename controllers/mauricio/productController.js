@@ -58,21 +58,31 @@ productController = {
             return p.id === idProducto ? true : false;
         });
 
+        console.log('ID del Producto a borrar: ' + JSON.stringify(producto));
+
         let indexOfProductToRemove = productos.indexOf(producto);
+
+        console.log('indexOfProductToRemove = ' + indexOfProductToRemove);
+
+        let temp1 = {};
 
         if (indexOfProductToRemove !== -1) {
             //splice recibe el index como primer argumento y la cantidad de elementos que se elimina de ahi en adelante, en este caso
             //solo sera el producto identificado
-            productos.splice(indexOfProductToRemove, 1);
+            console.log('producto encontrado');
+            temp1 = productos.splice(indexOfProductToRemove, 1);
+        } else {
+            console.log('Producto no encontrado');
         }
 
+        console.log("temp1 = " + JSON.stringify(temp1));
         //Escribir en el archivo JSON
         let archivoProductosActualizado = JSON.stringify(productos, null, 2);
         //console.log(archivoProductosActualizado);
-        //fs.writeFileSync(path.resolve(__dirname, "../../database/productos.json"), archivoProductosActualizado);
+        fs.writeFileSync(path.resolve(__dirname, "../../database/productos.json"), archivoProductosActualizado);
 
         console.log("Producto elimiando correctamente.");
-        res.redirect("/");
+        res.redirect("/products");
     }
 }
 

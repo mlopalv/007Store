@@ -4,11 +4,19 @@
         <meta charset="UTF-8">
         <title>The 007 Convention</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />        
+        
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">        
+        
+        
         <script src="https://kit.fontawesome.com/a215289790.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/css/normalize.css">
+        
+        <!--<link rel="stylesheet" href="/css/normalize.css">-->
+
         <link rel="stylesheet" href="/css/styles.css">
+        
         <link rel="stylesheet" href="/css/stylesProductIndex.css">
     </head>
     <body>
@@ -18,25 +26,31 @@
                 <h1>LISTADO DE PRODUCTOS</h1>
             </div>
             <div>
-                <a href='/products/create'>
-                    <button class="GFG" id="prodindex-but-agregar">
-                        AGREGAR ARTICULO
-                    </button>
-                </a>                  
+                <form action="/products/create">
+                    <input type="submit" value="AGREGAR ARTICULO" />
+                </form>            
             </div>
-            <!-- De esta manera tambien funciona
-            <form action="/products/create">
-                <input type="submit" value="AGREGAR ARTICULO" />
-            </form>
-            -->
+           
             <div>
+                <% let varHref = '' %>
                 <% for(let i=0; i < inventario.length; i++) { %>
+                    <% varHref = '/products/' + inventario[i].id + '/edit' %>
                 <ul class="prodindex-div-prodlist">
                     <li class="linum"><%= i + 1 %></li>
                     <li class="lidesc"><%= inventario[i].name %></li>
+                    <li class="liid"><%= inventario[i].id %></li>
                     <li class="liver"><i class="fa-solid fa-eye"></i></li>
-                    <li class="liedit"><i class="fa-solid fa-pen"></i></li>
-                    <li class="lidel"><i class="fa-solid fa-trash-can"></i></li>
+                    <li class="liedit">
+                        <a href=<%= varHref %>>
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                    </li>
+                    <li class="lidel">
+                        <form action="/products/<%= inventario[i].id  %>/?_method=DELETE" method="POST" class="formProductCreate">
+                            <i class="fa-solid fa-trash-can"></i>
+                            <button type="submit">Borrar producto</button><br>
+                        </form> 
+                    </li>                   
                 </ul>
                 <% } %>
             </div>

@@ -1,6 +1,4 @@
-* {
-    display:block;
-}
+
 
 
 .prodindex-div-topsection {
@@ -31,6 +29,32 @@ div.prodindex-div-topsection h1, h2, p {
     display:flex;
     flex-direction: row;
     list-style-type:none;
+    text-align: center;
+    align-items: center;
+    margin-left: 10px;
+    padding-left: 0%;
+    /*margin: 5% 10% 0% 5%;*/
+}
+
+.prodindex-div-prodlist {
+    padding-inline-start: 0%;
+    width: 95%;
+}
+
+.prodindex-div-prodlist li {
+    height: 50px;
+    
+}
+
+.prodindex-div-prodlist i {
+    width: 100%;
+    height: 100%;
+    display: block;
+    
+}
+
+.prodindex-div-prodlist a {
+    color:black;
 }
 
 .prodindex-div-prodlist .linum {
@@ -38,7 +62,13 @@ div.prodindex-div-topsection h1, h2, p {
 }
 
 .prodindex-div-prodlist .lidesc {
-    width:60%;
+    width:40%;
+    text-align: left;
+}
+
+.prodindex-div-prodlist .liid {
+    width:10%;
+    text-align: left;
 }
 
 .prodindex-div-prodlist .liver {
@@ -47,10 +77,16 @@ div.prodindex-div-topsection h1, h2, p {
 
 .prodindex-div-prodlist .liedit {
     width:10%;
+    display: block;
 }
 
 .prodindex-div-prodlist .lidel {
+    width:20%;
+}
+
+.prodindex-div-prodlist div {
     width:10%;
+    display: block;
 }
 
 #prodindex-but-agregar {

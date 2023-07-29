@@ -5,11 +5,11 @@
     <%- include('./partials/header') %>
     <main>
        
-        <form action="/" method="GET" class="formProductCreate">
+        <form action="/products/savenew" method="GET" class="formProductCreate">
             <h3 class="headerDescripcionDelProducto">Registro de nuevo producto</h3>
             <input type="text" name="nombre" placeholder="Nombre del producto" class="formProductCreateEditTextInput">
             <br>
-            <textarea id="story" name="descripcion" rows="12" class="formProductCreateEditTextInput" placeholder="Descripción del producto">Descripción del producto ...
+            <textarea id="story" name="descripcion" rows="12" class="formProductCreateEditTextInput" placeholder="Descripción del producto">
             </textarea>            
             <br>
             <input type="number" name="costo" class="formProductCreateEditTextInput" placeholder="Costo del producto">

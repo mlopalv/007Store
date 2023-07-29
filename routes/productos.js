@@ -26,10 +26,12 @@ const multerDiskStorage = multer.diskStorage(
 /** Chevo **/
 router.get('/products', controllersAdminProdChevo.index);
 router.get('/products/create', controllersAdminProdChevo.create);
+router.get('/products/savenew', controllersAdminProdChevo.savenew);
 //router.get('/products/:id', controllersAdminProdChevo.show);
 //router.post('/products/create', controllersAdminProdChevo.save);
 /** Mauricio **/
 /* Entrega el formulario de edicion de productos */
+//router.get('/products/:id/edit', productController.getById);
 router.get('/products/:id/edit', productController.getById);
 /* Actualiza un producto especifico */
 router.put('/products/:id', productController.update);
