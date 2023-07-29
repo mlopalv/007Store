@@ -27,7 +27,7 @@ const uploadFile = multer({ storage: multerDiskStorage });
 
 
 /** Chevo **/
-/*router.get('/products', controllersAdminProdChevo.index);*/
+router.get('/products', controllersAdminProdChevo.index);
 router.get('/products/create', controllersAdminProdChevo.create);
 //router.get('/products/:id', controllersAdminProdChevo.show);
 //router.post('/products/create', controllersAdminProdChevo.save);
