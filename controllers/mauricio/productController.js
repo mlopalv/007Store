@@ -19,6 +19,7 @@ productController = {
         res.render("productEdit", { producto });
 
     },
+    
     update: (req, res) => {
 
         let idProducto = parseInt(req.params.id);
@@ -29,24 +30,29 @@ productController = {
             return p.id === idProducto ? true : false;
         });
 
-        console.log("Producto obtenido para la actualizacion: " + producto.name);
-        //TOoDo adicional validaciones
+        console.log("Nombre de producto obtenido para la actualizacion: " + req.body.name);
+        console.log("Descripcion de producto obtenido para la actualizacion: " + req.body.description);
+        //Adicionamos al req el id del producto (Se crea la propiedad id)
+        req.id = idProducto;
+        //obtenemos la imagen y la adicinamos tambien al request. Se hace if en caso de que la imagen no sea
+        //actualizada y por lo tanto no se cargue nada.
+        req.body.imagen = req.file ? req.file.filename : req.body.oldImage;
+        console.log("Valor de req.body.imagen = " + req.body.imagen);
+        //TOoDo adicional validaciones        
         producto.name = req.body.name;
         producto.description = req.body.description.trim();
         producto.price = req.body.price;
+        producto.image = req.body.imagen;       
 
-
+       
         //Escribir en el archivo JSON
         let archivoProductosActualizado = JSON.stringify(productos, null, 2);
         //console.log(archivoProductosActualizado);
         fs.writeFileSync(path.resolve(__dirname, "../../database/productos.json"), archivoProductosActualizado);
-        //console.log("Actualizacion de producto " + req.params.id);
-        //console.log(producto);
-
+        
         console.log("Producto actualizado correctamente.");
-        res.render("productEdit", { producto });
-
-
+        //res.render("productEdit", { producto });
+        res.redirect("/");
 
     },
     delete: (req, res) => {

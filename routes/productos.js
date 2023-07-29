@@ -8,12 +8,12 @@ const currentPath = path.resolve(__dirname,'../controllers/chevo/productControll
 const controllersAdminProdChevo = require(currentPath);
 const productController = require(path.resolve(__dirname,'../controllers/mauricio/productController'));
 
-//Uso de multer
+//Uso de multer para almacenamiento de imagenes 
 const multerDiskStorage = multer.diskStorage(
     //Objeto literal con dos funciones
     {
         destination: function (req, file, cb) {
-            cb(null, "../public/images/avatars");
+            cb(null, path.resolve(__dirname,"../public/images/productos"));
         },
         filename: function (req, file, cb) {
             cb(null, Date.now() + path.extname(file.originalname));
@@ -21,6 +21,9 @@ const multerDiskStorage = multer.diskStorage(
     }
 
 );
+
+//Variable que sirve como middleware para la carga con multer
+const uploadFile = multer({ storage: multerDiskStorage });
 
 
 /** Chevo **/
@@ -32,7 +35,7 @@ router.get('/products/create', controllersAdminProdChevo.create);
 /* Entrega el formulario de edicion de productos */
 router.get('/products/:id/edit', productController.getById);
 /* Actualiza un producto especifico */
-router.put('/products/:id', productController.update);
+router.put('/products/:id', uploadFile.single("imagenProducto"), productController.update);
 /* Borra un producto especifico */
 router.delete('/products/:id', productController.delete);
 

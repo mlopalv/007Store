@@ -6,13 +6,13 @@
   <body>
     <%- include('./partials/header') %>
     <main>       
-        <form action="/products/<%=producto.id%>/?_method=PUT" method="POST" class="formProductCreate">
+        <form action="/products/<%=producto.id%>/?_method=PUT" method="POST" class="formProductCreate"clear enctype="multipart/form-data">
             <h3 class="headerDescripcionDelProducto">Edición de producto</h3>
             <input type="text" name="name" placeholder="Nombre del producto" class="formProductCreateEditTextInput" value="<%=producto.name%>">
             <br>
             <textarea name="description" rows="12" cols="50" class="formProductCreateEditTextInput" placeholder="Descripción del producto">
               <% if (producto.description !== null) {%>
-                      <%=producto.description.trim()%>
+                      <%=producto.description%>
               <% }else{ %>
                       "Descripción del producto ...";
               <% } %>               
@@ -21,9 +21,10 @@
             <input type="number" name="price" class="formProductCreateEditTextInput" placeholder="Precio del producto"
                 value="<%=producto.price%>"> 
             
-            <input type="image" name="image" class="formProductCreateEditTextInput" placeholder="Imagen producto"
-                value="<%=producto.image%>">               
-            
+            <img src="/images/productos/<%=producto.image%>" alt="<%=producto.name%>"/>
+            <input type="hidden" name="oldImage" value="<%=producto.image%>">
+            <input type="file" name="imagenProducto" id="image" class="formProductCreateEditTextInput" value="<%=producto.image%>" >
+           
             <br>            
             <br>                
             <button type="submit">Guardar</button><br>            

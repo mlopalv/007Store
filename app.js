@@ -5,13 +5,15 @@ const path = require("path");
 const methodOverride = require("method-override");
 
 const publicPath = path.resolve(__dirname, "./public");
-
+/*Seccion app.use*/
 app.use(express.static(publicPath));
 //Configuracion para procesamiento de envios POST
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 //Uso de method-override dentro de esta aplicacion
 app.use(methodOverride("_method"));
+//URL encode  - Para que nos pueda llegar la información desde el formulario al req.body
+app.use(express.urlencoded({ extended: false }));
 //Indicamos que el template-engine a usar es ejs
 app.set('view engine','ejs');
 
