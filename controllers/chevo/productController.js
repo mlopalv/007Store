@@ -38,19 +38,20 @@ module.exports = {
     savenew: (req,res) => {
         console.log('Entrando a save new');
         
-        console.log('nombre = ' + req.query.nombre);
-        console.log('descripcion = ' + req.query.descripcion);
-        console.log('costo = ' + req.query.costo);
+        console.log('nombre = ' + req.body.nombre);
+        console.log('descripcion = ' + req.body.descripcion);
+        console.log('costo = ' + req.body.costo);
+        
         let prodImage = req.file ? req.file.filename : req.body.oldImage;
-        console.log("Valor de req.body.imagen = " + req.body.imagen);
+        console.log("Valor de req.body.imagenProducto = " + req.body.imagenProducto);
 
         let newProd = {
             id: 100,
-            name: req.query.nombre,
-            description: req.query.descripcion,
+            name: req.body.nombre.trim(),
+            description: req.body.descripcion.trim(),
             image: prodImage,
-            price: Number(req.query.costo)
-        }
+            price: Number(req.body.costo)
+        };
         
         //newProd = JSON.stringify(newProd);
 
@@ -75,10 +76,10 @@ module.exports = {
         console.log('Maximo ID = ' + maxID);
 
         newProd.id = maxID + 1;
-
+      
         inventario.push(newProd);
         inventario = JSON.stringify(inventario, null, 4);
-        console.log(inventario);
+        //console.log(inventario);
         fs.writeFileSync(path.resolve(__dirname,'../../database/productos.json'),inventario);
         //res.send('Producto agregado');
         inventario = JSON.parse(inventario);

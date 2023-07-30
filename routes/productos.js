@@ -29,12 +29,12 @@ const uploadFile = multer({ storage: multerDiskStorage });
 /** Chevo **/
 router.get('/products', controllersAdminProdChevo.index);
 router.get('/products/create', controllersAdminProdChevo.create);
-router.get('/products/savenew', controllersAdminProdChevo.savenew);
+router.post('/products/savenew',  uploadFile.single("imagenProducto"), controllersAdminProdChevo.savenew);
 //router.get('/products/:id', controllersAdminProdChevo.show);
 //router.post('/products/create', controllersAdminProdChevo.save);
 /** Mauricio **/
 /* Ver los detalles de un producto especifico */
-router.get('/products/:id/details', productController.details);
+router.get('/products/:id', productController.details);
 /* Entrega el formulario de edicion de productos */
 router.get('/products/:id/edit', productController.getById);
 /* Actualiza un producto especifico */
