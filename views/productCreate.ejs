@@ -5,7 +5,7 @@
     <%- include('./partials/header') %>
     <main>
        
-        <form action="/products/savenew" method="GET" class="formProductCreate">
+        <form action="/products/savenew" method="POST" class="formProductCreate" enctype="multipart/form-data">
             <h3 class="headerDescripcionDelProducto">Registro de nuevo producto</h3>
             <input type="text" name="nombre" placeholder="Nombre del producto" class="formProductCreateEditTextInput">
             <br>

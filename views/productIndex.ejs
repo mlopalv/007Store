@@ -35,12 +35,13 @@
                 <% let varHref = '' %>
                 <% for(let i=0; i < inventario.length; i++) { %>
                     <% varHref = '/products/' + inventario[i].id + '/edit' %>
+                    <% varHref2 = '/products/' + inventario[i].id + '/?_method=DELETE' %>
                 <ul class="prodindex-div-prodlist">
                     <li class="linum"><%= i + 1 %></li>
                     <li class="lidesc"><%= inventario[i].name %></li>
                     <li class="liid"><%= inventario[i].id %></li>
                     <li class="liver">
-                        <a href="<%= '/products/' + inventario[i].id + '/details' %>">
+                        <a href="<%= '/products/' + inventario[i].id%>">
                             <i class="fa-solid fa-eye"></i>
                         </a>
                     </li>
@@ -50,10 +51,12 @@
                         </a>
                     </li>
                     <li class="lidel">
-                        <form action="/products/<%= inventario[i].id  %>/?_method=DELETE" method="POST" class="formProductCreate">
+                        <!--<a href="<%= varHref2 %>">
                             <i class="fa-solid fa-trash-can"></i>
+                        </a>-->
+                        <form action="/products/<%= inventario[i].id  %>/?_method=DELETE" method="POST" class="formProductCreate">                            
                             <button type="submit">Borrar producto</button><br>
-                        </form> 
+                        </form>
                     </li>                   
                 </ul>
                 <% } %>
