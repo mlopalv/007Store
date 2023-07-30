@@ -1,24 +1,10 @@
 [
   {
-    "id": 21,
-    "name": "test",
-    "description": "desc test",
-    "image": "image",
-    "price": 123
-  },
-  {
-    "id": 22,
-    "name": "Boletos para convencion 007 - Pase normal",
-    "description": "Acceso solo al recinto, puestos de venta de mercancias, etc",
-    "image": "image",
-    "price": 10500
-  },
-  {
     "id": 23,
     "name": "Pase plus",
-    "description": "Pase a todos los eventos, convivencia con actores, etc\r\n            ",
-    "image": "image",
-    "price": 22500
+    "description": "Pase a todos los eventos, convivencia con actores, etc",
+    "image": "1690674610422.webp",
+    "price": "22500"
   },
   {
     "id": 28,
@@ -30,16 +16,16 @@
   {
     "id": 29,
     "name": "Art 29",
-    "description": "Desc 29            ",
-    "image": "image",
-    "price": 100290
+    "description": "Desc 29",
+    "image": "1690674828877.jpg",
+    "price": "100290"
   },
   {
     "id": 30,
     "name": "Art 29",
-    "description": "Desc 29            ",
-    "image": "image",
-    "price": 100290
+    "description": "Desc 29",
+    "image": "1690674805988.webp",
+    "price": "100290"
   },
   {
     "id": 7,
@@ -52,8 +38,8 @@
     "id": 8,
     "name": "phasellus",
     "description": "nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue",
-    "image": "product6.png",
-    "price": 9100.19
+    "image": "1690676090120.jpg",
+    "price": "9100.19"
   },
   {
     "id": 9,
@@ -98,16 +84,16 @@
   },
   {
     "id": 16,
-    "name": "eu sapien cursus vestibulum proin eu mi",
+    "name": "Gloves",
     "description": "morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante",
-    "image": "product6.png",
-    "price": 5621.65
+    "image": "1690676786946.webp",
+    "price": "5621.65"
   },
   {
     "id": 17,
-    "name": "Boligrafo especial 007 workd tour",
+    "name": "Glasses",
     "description": "Esta descripcion del boligrafo es una modificacion realizada via CRD directamente desde el navegador.",
-    "image": "product2.png",
+    "image": "1690676676149.webp",
     "price": "770.82"
   },
   {

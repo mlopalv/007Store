@@ -3,6 +3,7 @@
 
 <html>
 <%- include('./partials/head') %>
+
   <body>
     <%- include('./partials/header') %>
       <main class="main">
@@ -15,7 +16,7 @@
               <div class="divLeftArrowArticuloImagenPrincipalProducto">
                 <i class="fa-regular fa-square-caret-left iconoFlecha"></i>
               </div>
-              <img src="/images/productDetails/productDetailsSample1.webp" class="imagenPrincipalDelProducto" />
+              <img src="/images/productos/<%=producto.image%>" class="imagenPrincipalDelProducto" />
               <div class="divRightArrowArticuloImagenPrincipalProducto">
                 <i class="fa-regular fa-square-caret-right iconoFlecha"></i>
               </div>
@@ -23,13 +24,13 @@
             <!--Sección imagenes pequeñas del producto-->
             <section class="seccionImagenesAdicionalesProducto">
               <article class="articuloImagenAdicionalProducto">
-                <img src="/images/productDetails/productDetailsSample1.webp" class="imagenAdicionalDelProducto" />
+                <img src="/images/productos/<%=producto.image%>" class="imagenAdicionalDelProducto" />
               </article>
               <article class="articuloImagenAdicionalProducto">
-                <img src="/images/productDetails/productDetailsSample1.webp" class="imagenAdicionalDelProducto" />
+                <img src="/images/productos/<%=producto.image%>" class="imagenAdicionalDelProducto" />
               </article>
               <article class="articuloImagenAdicionalProducto">
-                <img src="/images/productDetails/productDetailsSample1.webp" class="imagenAdicionalDelProducto" />
+                <img src="/images/productos/<%=producto.image%>" class="imagenAdicionalDelProducto" />
               </article>
             </section>
           </section>
@@ -38,50 +39,23 @@
             <!--sección de descripción del producto-->
             <section class="seccionDescripcionDelProducto">
               <header class="headerDescripcionDelProducto">
-                <h1>JAMES BOND SPYMASTER DUO ROLLERBAL -PEN NUMBERED EDITION- BY MONTEGRAPPA</h1>
+                <h1>
+                  <%=producto.name%>
+                </h1>
               </header>
               <!--articulo para describir el producto-->
               <article class="articuloDescripcionDelProducto">
-                <p>Please allow two weeks for delivery.
-                  Introducing the James Bond 007 Spymaster Duo Rollerball Pen by Montegrappa. Inspired by 007, this
-                  collectors' edition writing instrument is fitting companion for any assignment. In the best traditions
-                  of
-                  James Bond gadgetry, the 007 Spymaster Duo has hidden secrets and is stylishly handmade from precious
-                  materials in a numbered edition of just 380 pieces.
-                </p>
-                <br />
                 <p>
-                  Details. The pen is constructed from high-strength machined steel and aluminium. Its false upper
-                  barrel
-                  conceals a pair of special edition 007 cufflinks which can be
-                  accessed via a special locking mechanism and dummy blind cap. The steel grip is engraved with its
-                  individual number. The pen features rifling on the cap and upper barrel which echoes the iconic,
-                  gun-barrel title sequence. The lower barrel is made of blackened alloy with a knurled, pistol-grip
-                  finish.
-                  Additional product markings include the 007 logo on the blind cap, cufflinks and a chevron
-                  pocket-clip,
-                  and the Bond family crest foil-stamped onto a companion journal. The pen and accessories is housed in
-                  a
-                  custom travel case with a journal and secret compartments.
-                </p>
-                <br />
-                <p>
-                  Dimensions. L16.20cm, D1.85cm
-                </p>
-                <br />
-                <p>
-                  The makers. Montegrappa has been manufacturing the world’s most magical pens in the same artisanal
-                  factory
-                  for more than a century. Combining luxurious materials, high craftsmanship and unrivalled writing
-                  pleasure, the independent maker’s quality and individualist flair make it a firm favourite of
-                  dignitaries,
-                  creatives and collectors. All Montegrappa writing instruments are made at the company’s headquarters
-                  beneath Monte Grappa in Bassano del Grappa, Italy.
+                  <% if (producto.description !==null) {%>
+                    <%=producto.description%>
+                      <% }else{ %>
+                        "Descripción del producto ...";
+                        <% } %>
                 </p>
               </article>
               <!--Precion del producto-->
               <article class="articlePrecioProducto">
-                $ 300
+                <%=producto.price%>
               </article>
             </section>
             <!--sección de adicionar a tarjeta-->
@@ -100,7 +74,7 @@
         </section>
       </main>
       <%- include('./partials/footer') %>
-      <p style="text-align:left">Copyright &copy; 2023 Convenciones Internacionales S.R.L.</p>
+        <p style="text-align:left">Copyright &copy; 2023 Convenciones Internacionales S.R.L.</p>
 
   </body>
 

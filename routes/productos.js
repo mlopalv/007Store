@@ -33,13 +33,15 @@ router.get('/products/savenew', controllersAdminProdChevo.savenew);
 //router.get('/products/:id', controllersAdminProdChevo.show);
 //router.post('/products/create', controllersAdminProdChevo.save);
 /** Mauricio **/
+/* Ver los detalles de un producto especifico */
+router.get('/products/:id/details', productController.details);
 /* Entrega el formulario de edicion de productos */
-//router.get('/products/:id/edit', productController.getById);
 router.get('/products/:id/edit', productController.getById);
 /* Actualiza un producto especifico */
 router.put('/products/:id', uploadFile.single("imagenProducto"), productController.update);
 /* Borra un producto especifico */
 router.delete('/products/:id', productController.delete);
+
 
 
 module.exports = router;

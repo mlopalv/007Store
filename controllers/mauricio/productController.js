@@ -4,6 +4,18 @@ const path = require('path');
 
 productController = {
 
+    details: (req, res) => {
+        console.log("Product details ...");
+        let idProducto = parseInt(req.params.id);
+        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../database/productos.json")));
+
+        let producto = productos.find((producto) => {
+            return producto.id === idProducto ? true : false;
+        });
+
+        res.render("productDetails", {producto});
+    },
+
     getById: (req, res) => {
         let idProducto = parseInt(req.params.id);
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../database/productos.json")));
@@ -54,6 +66,7 @@ productController = {
         res.redirect("/");
 
     },
+
     delete: (req, res) => {
         let idProducto = parseInt(req.params.id);
         console.log("Eliminacion de producto -> Id obtenido del producto -> " + idProducto);
@@ -83,6 +96,7 @@ productController = {
         console.log("temp1 = " + JSON.stringify(temp1));
         //Escribir en el archivo JSON
         let archivoProductosActualizado = JSON.stringify(productos, null, 2);
+        
         //console.log(archivoProductosActualizado);
         fs.writeFileSync(path.resolve(__dirname, "../../database/productos.json"), archivoProductosActualizado);
 
