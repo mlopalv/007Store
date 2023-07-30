@@ -41,12 +41,14 @@ module.exports = {
         console.log('nombre = ' + req.query.nombre);
         console.log('descripcion = ' + req.query.descripcion);
         console.log('costo = ' + req.query.costo);
-        
+        let prodImage = req.file ? req.file.filename : req.body.oldImage;
+        console.log("Valor de req.body.imagen = " + req.body.imagen);
+
         let newProd = {
             id: 100,
             name: req.query.nombre,
             description: req.query.descripcion,
-            image: "image",
+            image: prodImage,
             price: Number(req.query.costo)
         }
         
@@ -55,17 +57,17 @@ module.exports = {
         let inventario = fs.readFileSync(path.resolve(__dirname,'../../database/productos.json'));
         inventario = JSON.parse(inventario);
         
-        const arrayOfIds = [];
+        let arrayOfIds = [];
 
         for (let i=0; i < inventario.length; i++) {
             arrayOfIds.push(inventario[i].id);
-            console.log('Valor de ID = ' + inventario[i].id);
+            //console.log('Valor de ID = ' + inventario[i].id);
         };
 
         counter = 0;
         arrayOfIds.forEach(element => {
             counter++;
-            console.log("arrayOfIds [" + counter + "] = " + element);
+            //console.log("arrayOfIds [" + counter + "] = " + element);
         });        
 
         let maxID = Math.max(...arrayOfIds);

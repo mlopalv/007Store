@@ -15,7 +15,11 @@
             <input type="number" name="costo" class="formProductCreateEditTextInput" placeholder="Costo del producto">
             <br>
             <h3>Foto del producto</h3>
-            <input type="file" name="imagenProducto" id="image" class="formProductCreateEditTextInput" value="" >
+            <!--<img src="/images/productos/logo-2.png" class="imagenAdicionalDelProducto" />-->
+            <img src="/images/productos/logo-2.png" />
+            <input type="hidden" name="oldImage" value="/images/productos/logo-2.png">
+            <input type="file" name="imagenProducto" id="image" class="formProductCreateEditTextInput" value="/images/productos/logo-2.png" >
+
             <br>                
             <h3>Fecha de registro del producto</h3>
             <input type="date" name="fechaRegistro" class="formProductCreateEditTextInput">
