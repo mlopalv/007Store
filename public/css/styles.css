@@ -7,6 +7,10 @@ html {
     font-size: 16px;
 }
 
+.div-mainlogo {
+    width:30%;
+    margin: auto;
+}
 /*body {
     max-width: 1080px;
     margin: auto;
