@@ -68,6 +68,7 @@ productController = {
     },
 
     delete: (req, res) => {
+        
         let idProducto = parseInt(req.params.id);
         console.log("Eliminacion de producto -> Id obtenido del producto -> " + idProducto);
         let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../database/productos.json")));
