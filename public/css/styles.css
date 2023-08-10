@@ -8,7 +8,7 @@ html {
 }
 
 .div-mainlogo {
-    width:30%;
+    width:50%;
     margin: auto;
 }
 /*body {
@@ -123,4 +123,10 @@ a {
         flex-direction: row;
         justify-content: space-around;
     }
+
+    .div-mainlogo {
+        width:450px;
+        /*margin: auto;*/
+    }
+
 }

@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+let session = require('express-session');
 /* Importamos method-override para poder usar acciones PUT y DELETE desde los formularios HTML */
 const methodOverride = require("method-override");
 
@@ -16,16 +17,20 @@ app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
 //Indicamos que el template-engine a usar es ejs
 app.set('view engine','ejs');
+//Indicacion del uso de la session
+app.use(session({secret: "Secreto"}));
 
 
 //Requerir las rutas
 const rutasProductos = require('./routes/productos');
+const rutasUsuarios = require('./routes/usuarios');
 const rutasMain = require("./routes/main");
 
 
 //Para usar las rutas
 app.use(rutasMain);
 app.use(rutasProductos);
+app.use(rutasUsuarios);
 
 
 app.listen(3000, () => {

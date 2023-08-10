@@ -4,12 +4,22 @@
     <body class="body-page-login">
         <%- include('./partials/header') %>
         <main>
-            <form action="/" method="GET" class="form-reg-user">
-                <input type="text" name="nombre" placeholder="Nombre de usuario" class="regular-text">
+            <% if(typeof errors != 'undefined') { %>
+            <p style="color:red"> ERROR</p>
+            <ul>
+                <% for (let i=0; i < errors.length; i++) { %>
+                    <li>
+                        <%= errors[i].msg %>
+                    </li>
+                <% } %>
+            </ul>
+            <% } %>
+            <form action="/users/login" method="POST" class="form-reg-user">
+                <input type="text" name="email" placeholder="Correo de usuario" class="regular-text">
                 <br>
-                <input type="text" name="apellido" placeholder="Contrasena" class="regular-text">
+                <input type="text" name="password" placeholder="Contrasena" class="regular-text">
                 <br>
-                <button type="submit" class="but-submit">Enviar</button><br>
+                <button type="submit" class="but-submit">Login</button><br>
             </form>            
         </main>
         <%- include('./partials/footer') %>      
