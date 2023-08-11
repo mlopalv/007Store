@@ -50,5 +50,18 @@
         "password1": "pass1",
         "password2": "pass1",
         "categoria": "general"
+    },
+    {
+        "id": 5,
+        "nombre": "John",
+        "apellido": "Doe",
+        "usuario": "johndoe",
+        "email": "johndoe@gmail.com",
+        "nacimiento": "1987-04-06",
+        "domicilio": "Cll 152 # 55 A 10",
+        "pais": "CO",
+        "password1": "password",
+        "password2": "password",
+        "categoria": "general"
     }
 ]
