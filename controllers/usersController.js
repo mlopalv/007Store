@@ -147,6 +147,10 @@ const usersController = {
         }
 
 
+    },
+
+    getProfile: function(req,res) {
+        res.render('profile',{userData: req.session.usuarioLogueado})
     }
 };
 

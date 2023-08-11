@@ -52,8 +52,14 @@
                     </div>
                     <div class="profile-div-white">
                         <p><%= userData.pais %></p>
-                    </div>                                                                                                                 
+                    </div>  
+                                                                                                                                   
                 </div>
+                <div class="profile-div-h2">
+                    <form action="/users/logout" method="POST">
+                        <button type="submit" class="but-submit">Salir</button><br>
+                    </form>
+                </div>                
             <% } else { %>
                 <div class="profile-div-h2">
                     <h2>Usuario no registrado aun</h2>
