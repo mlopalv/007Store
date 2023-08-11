@@ -50,5 +50,44 @@
         "password1": "pass1",
         "password2": "pass1",
         "categoria": "general"
+    },
+    {
+        "id": 5,
+        "nombre": "Luis Miguel",
+        "apellido": "Bastieri",
+        "usuario": "lm",
+        "email": "lm@hot.com",
+        "nacimiento": "2023-08-10",
+        "domicilio": "los angeles 123",
+        "pais": "AF",
+        "password1": "111",
+        "password2": "111",
+        "categoria": "general"
+    },
+    {
+        "id": 6,
+        "nombre": "Mauricio",
+        "apellido": "Garces",
+        "usuario": "mauri",
+        "email": "mauri@hotmail.com",
+        "nacimiento": "1970-04-01",
+        "domicilio": "Lago Yuriria #123",
+        "pais": "MX",
+        "password1": "mauricio123",
+        "password2": "mauricio123",
+        "categoria": "general"
+    },
+    {
+        "id": 7,
+        "nombre": "Leonardo",
+        "apellido": "DiCaprio",
+        "usuario": "leo",
+        "email": "leo@leo.com",
+        "nacimiento": "2023-08-04",
+        "domicilio": "Beverly Hills 123",
+        "pais": "US",
+        "password1": "123",
+        "password2": "123",
+        "categoria": "general"
     }
 ]

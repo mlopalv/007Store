@@ -118,6 +118,44 @@ a {
     background-color: black;
 }
 
+.profile-div-main {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    max-width: 400px;
+
+    .profile-div-black {
+        background-color: black;
+        color: white;
+        width: 50%;
+        display:inline; 
+        border: solid 2px black;
+        padding: 10px;
+    }
+
+    .profile-div-white {
+        background-color: white;
+        color: black;
+        width: 50%;
+        display:inline; 
+        border: solid 2px black;   
+        padding: 10px;    
+    }  
+    
+}
+
+.profile-div-h2 {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    max-width: 400px;    
+}
+
 
 
 @media (min-width:900px) {

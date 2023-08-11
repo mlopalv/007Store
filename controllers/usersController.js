@@ -81,9 +81,9 @@ const usersController = {
 
             users.push(usuarioARegistrar);
             users = JSON.stringify(users,null,4);
+
             //No estoy seguro si ya desde aqui hay que asignarle sesion al nuevo usuario
-            //req.session.usuarioLogueado = usuarioARegistrar;
-            
+            req.session.usuarioLogueado = usuarioARegistrar;
 
             usuarioARegistrar = JSON.stringify(usuarioARegistrar,null,4);
 
@@ -91,7 +91,7 @@ const usersController = {
             
             fs.writeFileSync(path.resolve(__dirname, '../database/usuarios.json'),users);
 
-            res.render('profile');
+            res.redirect('/users/profile');
 
 
         } else {
@@ -122,7 +122,7 @@ const usersController = {
             let usuarioALoguearse;
             for (let i=0; i < users.length; i++){
                 if(users[i].email==req.body.email){
-                    /*
+                    /* Tenemos que instalar el bcrypt para validar los passwords
                     if(bcrypt.compareSync(req.body.password,users[i].password)){
 
                     }
@@ -140,10 +140,7 @@ const usersController = {
 
             req.session.usuarioLogueado = usuarioALoguearse;
 
-
-
             res.redirect('/users/profile');
-
 
         } else {
             return res.render('login', {errors: errors.errors});

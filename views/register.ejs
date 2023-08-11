@@ -58,7 +58,7 @@
                 >
                 <br>
                 <input type="text" name="domicilio" class="regular-text" placeholder="domicilio"
-                <% if(typeof oldData != 'undefined') { %>
+                <% if(locals.oldData && oldData.domicilio) { %>
                     value="<%= oldData.domicilio %>"
                 <% } else { %>
                     value=""    

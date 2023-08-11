@@ -9,7 +9,6 @@ const publicPath = path.resolve(__dirname, "./public");
 /*Seccion app.use*/
 app.use(express.static(publicPath));
 //Configuracion para procesamiento de envios POST
-app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 //Uso de method-override dentro de esta aplicacion
 app.use(methodOverride("_method"));
@@ -18,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 //Indicamos que el template-engine a usar es ejs
 app.set('view engine','ejs');
 //Indicacion del uso de la session
-app.use(session({secret: "Secreto"}));
+app.use(session({secret: "Es un secreto"}));
 
 
 //Requerir las rutas

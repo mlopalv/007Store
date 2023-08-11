@@ -30,6 +30,10 @@ router.get('/users/register', usersController.register);
 
 router.post('/users/processRegister', validaciones, usersController.processRegister);
 
+router.get('/users/profile', (req,res)=>{
+    res.render('profile',{userData: req.session.usuarioLogueado})
+});
+
 //router.get('/users/profile', usersController.showProfile);
 /*
 router.post('/users/login', [
