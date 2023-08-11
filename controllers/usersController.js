@@ -151,7 +151,13 @@ const usersController = {
 
     getProfile: function(req,res) {
         res.render('profile',{userData: req.session.usuarioLogueado})
-    }
+    },
+
+    logout: function(req,res) {
+        req.session.destroy(function (err) {
+          res.redirect('/'); //Inside a callback… bulletproof!
+         }
+    )}
 };
 
 module.exports = usersController;

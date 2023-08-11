@@ -32,6 +32,8 @@ router.post('/users/processRegister', validaciones, usersController.processRegis
 
 router.get('/users/profile', usersController.getProfile);
 
+router.get('/users/logout', usersController.logout);
+
 //router.get('/users/profile', usersController.showProfile);
 /*
 router.post('/users/login', [
