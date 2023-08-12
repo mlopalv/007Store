@@ -24,7 +24,7 @@ const usersController = {
             nacimiento: req.body.nacimiento,
             domicilio: req.body.domicilio,
             pais: req.body.pais,
-            password1: req.body.pass1,
+            password1: req.body.pass1, //*Este password tiene que encriptarse con bcrypt
             password2: req.body.pass2,            
             categoria: "general"
         };
