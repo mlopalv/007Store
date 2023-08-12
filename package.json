@@ -4,6 +4,7 @@
   "description": "clear\r \"Realizamos el primer commit\"\r # Proyecto007\r ## Tematica: Sitio web que servira como plataforma donde los asitentes a una convencion del 007 podran:\r ## 1 - Adquirir boletos para la convencion \r ## 2 - Comprar mercancia\r ## 3 - Adquirir boletos para firmas de autografos y convivencias con actores\r ## 4 - Adquirir boletos para paseos en los autos de James Bond\r ## 5 - Expo de collectibles\r ## 6 - Acceso a 'gaming zone'",
   "main": "app.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",

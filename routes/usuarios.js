@@ -30,6 +30,10 @@ router.get('/users/register', usersController.register);
 
 router.post('/users/processRegister', validaciones, usersController.processRegister);
 
+router.get('/users/profile', usersController.getProfile);
+
+router.get('/users/logout', usersController.logout);
+
 //router.get('/users/profile', usersController.showProfile);
 /*
 router.post('/users/login', [

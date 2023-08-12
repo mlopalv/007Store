@@ -63,5 +63,31 @@
         "password1": "password",
         "password2": "password",
         "categoria": "general"
+    },   
+    {
+        "id": 6,
+        "nombre": "Mauricio",
+        "apellido": "Garces",
+        "usuario": "mauri",
+        "email": "mauri@hotmail.com",
+        "nacimiento": "1970-04-01",
+        "domicilio": "Lago Yuriria #123",
+        "pais": "MX",
+        "password1": "mauricio123",
+        "password2": "mauricio123",
+        "categoria": "general"
+    },
+    {
+        "id": 7,
+        "nombre": "Leonardo",
+        "apellido": "DiCaprio",
+        "usuario": "leo",
+        "email": "leo@leo.com",
+        "nacimiento": "2023-08-04",
+        "domicilio": "Beverly Hills 123",
+        "pais": "US",
+        "password1": "123",
+        "password2": "123",
+        "categoria": "general"
     }
 ]

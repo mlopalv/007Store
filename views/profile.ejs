@@ -1,14 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <label>
-        Usuario agregado
-    </label>
-    
-</body>
+<html>
+    <head>
+        <%- include('./partials/head') %>
+    </head>
+    <body>
+        <%- include('./partials/header') %>
+        <main>
+            <% if(locals.userData && userData.nombre) { %>
+                <div class="profile-div-h2">
+                    <h2>Perfil del miembro</h2>
+                </div>
+                <div class="profile-div-main">
+                    <div class="profile-div-black">
+                        <p>Nombre del miembro:</p>
+                    </div>
+                    <div class="profile-div-white">
+                        <p><%= userData.nombre %></p>
+                    </div> 
+                    <div class="profile-div-black">
+                        <p>Apellido del miembro:</p>
+                    </div>
+                    <div class="profile-div-white">
+                        <p><%= userData.apellido %></p>
+                    </div>   
+                    <div class="profile-div-black">
+                        <p>Nombre de usuario:</p>
+                    </div>
+                    <div class="profile-div-white">
+                        <p><%= userData.usuario %></p>
+                    </div> 
+                    <div class="profile-div-black">
+                        <p>Correo electronico:</p>
+                    </div>
+                    <div class="profile-div-white">
+                        <p><%= userData.email %></p>
+                    </div>   
+                    <div class="profile-div-black">
+                        <p>Fecha de nacimiento</p>
+                    </div>
+                    <div class="profile-div-white">
+                        <p><%= userData.nacimiento %></p>
+                    </div>   
+                    <div class="profile-div-black">
+                        <p>Domicilio</p>
+                    </div>
+                    <div class="profile-div-white">
+                        <p><%= userData.domicilio %></p>
+                    </div>  
+                    <div class="profile-div-black">
+                        <p>Pais</p>
+                    </div>
+                    <div class="profile-div-white">
+                        <p><%= userData.pais %></p>
+                    </div>  
+                                                                                                                                   
+                </div>
+                <div class="profile-div-h2">
+                    <form action="/users/logout" method="POST">
+                        <button type="submit" class="but-submit">Salir</button><br>
+                    </form>
+                </div>                
+            <% } else { %>
+                <div class="profile-div-h2">
+                    <h2>Usuario no registrado aun</h2>
+                </div>
+            <% } %>                         
+        </main>
+        <%- include('./partials/footer') %>
+        <p style="text-align:left">Copyright &copy; 2023 Convenciones Internacionales S.R.L.</p>  
+    </body>
 </html>
