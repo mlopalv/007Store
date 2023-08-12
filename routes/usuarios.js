@@ -11,7 +11,7 @@ const validaciones = [
     body('apellido').notEmpty().withMessage('El apellido no puede estar vacio'),
     body('usuario').notEmpty().withMessage('El nombre de usuario no puede estar vacio'),
     body('email').isEmail().withMessage('Email invalido'),
-    body('nacimiento').notEmpty().withMessage('No hay fecha de cacimiento seleccionada'),
+    body('nacimiento').notEmpty().withMessage('No hay fecha de nacimiento seleccionada'),
     //body('nacimiento').isDate().withMessage('Fecha equivocada'),
     body('domicilio').notEmpty().withMessage('La direccion no puede estar vacia'),  
     body('pais').notEmpty().withMessage('No hay pais seleccionado'),      

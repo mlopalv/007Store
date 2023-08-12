@@ -14,9 +14,8 @@ const usersController = {
     processRegister: function(req,res) {
         let errors = validationResult(req);
 
-        console.log(JSON.stringify(errors,null,4) );
-        console.log("Pass1 -> ", req.body.pass1);
-        console.log("Pass2 -> ", req.body.pass2);
+        //console.log(JSON.stringify(errors,null,4) );
+              
  
         let usuarioARegistrar = {
             id:0,
@@ -26,9 +25,7 @@ const usersController = {
             email: req.body.email,
             nacimiento: req.body.nacimiento,
             domicilio: req.body.domicilio,
-            pais: req.body.pais,
-            password1: req.body.pass1, //*Este password tiene que encriptarse con bcrypt
-            password2: req.body.pass2,            
+            pais: req.body.pais,           
             categoria: "general"
         };
 
@@ -36,8 +33,7 @@ const usersController = {
 
         if (errors.isEmpty()){
             console.log('NO hay errores');
-            //console.log(JSON.stringify(errors,null,4));
-
+            
             let usersJSON = fs.readFileSync(path.resolve(__dirname, '../database/usuarios.json'));
             let users;
             if(usersJSON==""){
@@ -52,14 +48,9 @@ const usersController = {
             let usuarioExistente = false;
 
             for (let i=0; i < users.length; i++){
-                console.log('Looping en el for');
+                
                 arrayOfIds.push(users[i].id);
-                if(users[i].email==req.body.email){
-                    /*
-                    if(bcrypt.compareSync(req.body.password,users[i].password)){
-
-                    }
-                    */
+                if(users[i].email==req.body.email){                    
                     usuarioExistente =true;
                     break;
                 }
@@ -81,6 +72,12 @@ const usersController = {
             //console.log('Maximo ID de usuarios = ' + maxID);
     
             usuarioARegistrar.id = maxID + 1;
+
+            /*Se cifran las contraseñas usando la librerìa bcryptjs*/
+            let passOriginal = bcrypt.hashSync(req.body.pass1, 10);
+            let passControl = bcrypt.hashSync(req.body.pass2, 10);
+            usuarioARegistrar.password1 = passOriginal;
+            usuarioARegistrar.password2 = passControl;
 
             users.push(usuarioARegistrar);
             users = JSON.stringify(users,null,4);
@@ -123,21 +120,24 @@ const usersController = {
             }
 
             let usuarioALoguearse;
+            
             for (let i=0; i < users.length; i++){
                 if(users[i].email==req.body.email){
-                    /* Tenemos que instalar el bcrypt para validar los passwords
-                    if(bcrypt.compareSync(req.body.password,users[i].password)){
-
-                    }
-                    */
-                    usuarioALoguearse = users[i];
-                    break;
+                    /* Comparamos la contraseña ingresada con la contraseña almacenada */
+                    if(bcrypt.compareSync(req.body.password, users[i].password1)){
+                        console.log("Contraseña válida.");
+                        usuarioALoguearse = users[i];
+                        break;
+                    }else{
+                        console.log("Contraseña inválida.");
+                    }                    
+                    
                 }
             }
 
             if(usuarioALoguearse == undefined){
-                return res.render('login', {errors:[
-                    {msg: 'Usuario o contrasena invalidos'}
+                return res.render('login', { errors:[
+                    {msg: 'Usuario o contrasena inválidos'}
                 ]})
             }
 

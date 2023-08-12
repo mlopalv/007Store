@@ -102,5 +102,18 @@
         "password1": "enigma",
         "password2": "enigma",
         "categoria": "general"
+    },
+    {
+        "id": 9,
+        "nombre": "Joe",
+        "apellido": "Doe 2",
+        "usuario": "johndoe2",
+        "email": "johndoe2@gmail.com",
+        "nacimiento": "1987-05-06",
+        "domicilio": "Avenida de las naciones unidas",
+        "pais": "AL",
+        "categoria": "general",
+        "password1": "$2a$10$oeZrjaDh8qpumdnPQz26VelIFMWjo5rrtCtSJxvlJDT2jYypte7he",
+        "password2": "$2a$10$xt4Uz5D0FFxBQxAxkwqMvegSnDpIVNwDFgRXZZKy/wIz2jF/E.sXq"
     }
 ]
