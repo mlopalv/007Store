@@ -2,7 +2,8 @@ const express = require('express');
 const fs = require('fs');
 const { validationResult } = require('express-validator');
 const path = require('path');
-//const { encode } = require('punycode');
+let bcrypt = require("bcryptjs");
+
 
 const usersController = {
     //seccion para registrar nuevos usuarios - mostrar la vista
@@ -14,6 +15,8 @@ const usersController = {
         let errors = validationResult(req);
 
         console.log(JSON.stringify(errors,null,4) );
+        console.log("Pass1 -> ", req.body.pass1);
+        console.log("Pass2 -> ", req.body.pass2);
  
         let usuarioARegistrar = {
             id:0,
@@ -29,7 +32,7 @@ const usersController = {
             categoria: "general"
         };
 
-        console.log('To String = ' + JSON.stringify(req.body.pais));
+        //console.log('To String = ' + JSON.stringify(req.body.pais));
 
         if (errors.isEmpty()){
             console.log('NO hay errores');
@@ -75,7 +78,7 @@ const usersController = {
             let maxID = Math.max(...arrayOfIds);
             //let maxID = Math.max(users.id);
 
-            console.log('Maximo ID de usuarios = ' + maxID);
+            //console.log('Maximo ID de usuarios = ' + maxID);
     
             usuarioARegistrar.id = maxID + 1;
 
@@ -87,7 +90,7 @@ const usersController = {
 
             usuarioARegistrar = JSON.stringify(usuarioARegistrar,null,4);
 
-            console.log('Nuevo usuario = ' + usuarioARegistrar);
+            //console.log('Nuevo usuario = ' + usuarioARegistrar);
             
             fs.writeFileSync(path.resolve(__dirname, '../database/usuarios.json'),users);
 

@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 let session = require('express-session');
+let bcrypt = require("bcryptjs");
 /* Importamos method-override para poder usar acciones PUT y DELETE desde los formularios HTML */
 const methodOverride = require("method-override");
 

@@ -18,7 +18,13 @@ const validaciones = [
     body('pais').not().isIn(['Seleccionar pais','']).withMessage('No hay pais seleccionado'),
     
     body('pass1').notEmpty().withMessage('Contrasena 1 vacia'),
-    body('pass2').notEmpty().withMessage('Contrasena 2 vacia')
+    body('pass2').notEmpty().withMessage('Contrasena 2 vacia'),
+    
+    /** Validar que la contraseña coincide con la contraseña de control */
+    body("pass1").custom ( (value, { req }) => {            
+        return value === req.body.pass2;
+     }
+    ).withMessage("La contraseña no coincide con la contraseña de control.")   
 ];
 
 /** Chevo **/

@@ -63,7 +63,7 @@
         "password1": "password",
         "password2": "password",
         "categoria": "general"
-    },   
+    },
     {
         "id": 6,
         "nombre": "Mauricio",
@@ -88,6 +88,19 @@
         "pais": "US",
         "password1": "123",
         "password2": "123",
+        "categoria": "general"
+    },
+    {
+        "id": 8,
+        "nombre": "Jane",
+        "apellido": "Doe",
+        "usuario": "janedoe",
+        "email": "janedoe@gmail.com",
+        "nacimiento": "1987-04-06",
+        "domicilio": "Cr 72 B # 22 A - 90",
+        "pais": "DZ",
+        "password1": "enigma",
+        "password2": "enigma",
         "categoria": "general"
     }
 ]
