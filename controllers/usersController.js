@@ -145,6 +145,8 @@ const usersController = {
 
             if (req.body.recordar != undefined) {
                 res.cookie('recordar', usuarioALoguearse.email, {maxAge: 600000})
+            } else {
+                console.log('El usuario no quiere ser recordado');
             }
 
             res.redirect('/users/profile');
@@ -163,7 +165,7 @@ const usersController = {
     logout: function(req,res) {
         
         req.session.destroy();
-        res.clearCookie('connect.sid');
+        res.clearCookie('recordar');
         /*
         req.session.destroy(function (err) {
           res.redirect('/'); //Inside a callback… bulletproof!
