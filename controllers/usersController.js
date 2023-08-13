@@ -143,6 +143,10 @@ const usersController = {
 
             req.session.usuarioLogueado = usuarioALoguearse;
 
+            if (req.body.recordar != undefined) {
+                res.cookie('recordar', usuarioALoguearse.email, {maxAge: 600000})
+            }
+
             res.redirect('/users/profile');
 
         } else {
@@ -157,10 +161,15 @@ const usersController = {
     },
 
     logout: function(req,res) {
+        
+        req.session.destroy();
+        res.clearCookie('connect.sid');
+        /*
         req.session.destroy(function (err) {
           res.redirect('/'); //Inside a callback… bulletproof!
-         }
-    )}
+         })
+         */
+    }
 };
 
 module.exports = usersController;

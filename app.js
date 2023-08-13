@@ -5,6 +5,8 @@ let session = require('express-session');
 let bcrypt = require("bcryptjs");
 /* Importamos method-override para poder usar acciones PUT y DELETE desde los formularios HTML */
 const methodOverride = require("method-override");
+const cookie = require('cookie-parser');
+const recordarMiddleware = require('./middlewares/recordarMiddleware');
 
 const publicPath = path.resolve(__dirname, "./public");
 /*Seccion app.use*/
@@ -19,12 +21,17 @@ app.use(express.urlencoded({ extended: false }));
 app.set('view engine','ejs');
 //Indicacion del uso de la session
 app.use(session({secret: "Es un secreto"}));
+//Las cookies
+app.use(cookie());
+//Recordar la cookies y reabrir session
+app.use(recordarMiddleware);
 
 
 //Requerir las rutas
 const rutasProductos = require('./routes/productos');
 const rutasUsuarios = require('./routes/usuarios');
 const rutasMain = require("./routes/main");
+const cookieParser = require("cookie-parser");
 
 
 //Para usar las rutas
