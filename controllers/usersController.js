@@ -163,9 +163,9 @@ const usersController = {
     },
 
     logout: function(req,res) {
-        
-        req.session.destroy();
         res.clearCookie('recordar');
+        req.session.destroy();
+        return res.redirect('/');
         /*
         req.session.destroy(function (err) {
           res.redirect('/'); //Inside a callback… bulletproof!
