@@ -5,19 +5,24 @@
         <%- include('./partials/header') %>
         <main>
             <% if(typeof errors != 'undefined') { %>
-            <p style="color:red"> ERROR</p>
-            <ul>
-                <% for (let i=0; i < errors.length; i++) { %>
-                    <li>
-                        <%= errors[i].msg %>
-                    </li>
-                <% } %>
-            </ul>
+                <div class="login-div-errors">
+                    <p style="color:red"> ERROR</p>
+                    <ul class="ul-nodots">
+                        <% for (let i=0; i < errors.length; i++) { %>
+                            <li>
+                                <%= errors[i].msg %>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
             <% } %>
             <form action="/users/login" method="POST" class="form-reg-user">
                 <input type="text" name="email" placeholder="Correo de usuario" class="regular-text">
                 <br>
                 <input type="password" name="password" placeholder="Contrasena" class="regular-text">
+                <br>
+                <label class="label">Recordarme</label>
+                <input type="checkbox" name="recordar" class="check">
                 <br>
                 <button type="submit" class="but-submit">Login</button><br>
             </form>            

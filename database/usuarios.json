@@ -115,5 +115,18 @@
         "categoria": "general",
         "password1": "$2a$10$oeZrjaDh8qpumdnPQz26VelIFMWjo5rrtCtSJxvlJDT2jYypte7he",
         "password2": "$2a$10$xt4Uz5D0FFxBQxAxkwqMvegSnDpIVNwDFgRXZZKy/wIz2jF/E.sXq"
+    },
+    {
+        "id": 10,
+        "nombre": "Tom ",
+        "apellido": "Cruise",
+        "usuario": "tomcruise",
+        "email": "tom@tom.com",
+        "nacimiento": "2023-08-17",
+        "domicilio": "Beverly Hills 123",
+        "pais": "US",
+        "categoria": "general",
+        "password1": "$2a$10$EY0p5Kmems9T1u/yLgcpVudx9z2MPUiFUNP.eyxU7xaSe4ussBPVu",
+        "password2": "$2a$10$54X.Uv0IZmlUeYZ.45MOQ.PdM39XOOuS8.WHB.xz2J5nAwK8CNtWu"
     }
 ]
