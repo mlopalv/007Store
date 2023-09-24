@@ -3,10 +3,7 @@ const router = express.Router();
 const path = require('path');
 const multer = require("multer");
 
-const currentPath = path.resolve(__dirname,'../controllers/chevo/productController.js');
-
-const controllersAdminProdChevo = require(currentPath);
-const productController = require(path.resolve(__dirname,'../controllers/mauricio/productController'));
+const productController = require(path.resolve(__dirname,'../controllers/productController'));
 
 //Uso de multer para almacenamiento de imagenes 
 const multerDiskStorage = multer.diskStorage(
@@ -25,14 +22,9 @@ const multerDiskStorage = multer.diskStorage(
 //Variable que sirve como middleware para la carga con multer
 const uploadFile = multer({ storage: multerDiskStorage });
 
-
-/** Chevo **/
-router.get('/products', controllersAdminProdChevo.index);
-router.get('/products/create', controllersAdminProdChevo.create);
-router.post('/products/savenew',  uploadFile.single("imagenProducto"), controllersAdminProdChevo.savenew);
-//router.get('/products/:id', controllersAdminProdChevo.show);
-//router.post('/products/create', controllersAdminProdChevo.save);
-/** Mauricio **/
+router.get('/products', productController.index);
+router.get('/products/create', productController.create);
+router.post('/products/savenew',  uploadFile.single("imagenProducto"), productController.savenew);
 /* Ver los detalles de un producto especifico */
 router.get('/products/:id', productController.details);
 /* Entrega el formulario de edicion de productos */

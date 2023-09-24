@@ -34,7 +34,7 @@ const rutasMain = require("./routes/main");
 const cookieParser = require("cookie-parser");
 
 
-//Para usar las rutas
+//Uso de las rutas
 app.use(rutasMain);
 app.use(rutasProductos);
 app.use(rutasUsuarios);
