@@ -24,9 +24,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DECIMAL(10, 0),
             allowNull: false
         },
-        category_id: {
-            type: dataTypes.INTEGER.UNSIGNED            
-            
+        subcategory_id: {
+            type: dataTypes.INTEGER.UNSIGNED
         }        
     };
     let config = {
@@ -40,9 +39,9 @@ module.exports = (sequelize, dataTypes) => {
     
     Product.associate = function (modelos) {
         
-        Product.belongsTo(modelos.Category, {
-            as: "category",            
-            foreignKey: "category_id"           
+        Product.belongsTo(modelos.Subcategory, {
+            as: "subcategory",            
+            foreignKey: "subcategory_id"           
         });
     };
 

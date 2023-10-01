@@ -8,6 +8,7 @@
     <%- include('./partials/header') %>
       <main class="main">
         <!--sección general del producto-->
+        
         <section class="seccionGeneralProducto">
           <!--sección imágenes del producto-->
           <section class="seccionImagenesDelProducto">
@@ -39,12 +40,12 @@
             <!--sección de descripción del producto-->
             <section class="seccionDescripcionDelProducto">
               <header class="headerDescripcionDelProducto">
-                <h1>
+                <h1 id="nombreProducto">
                   <%=producto.name%>
                 </h1>
               </header>
               <!--articulo para describir el producto-->
-              <article class="articuloDescripcionDelProducto">
+              <article class="articuloDescripcionDelProducto" id="descripcionProducto">
                 <p>
                   <% if (producto.description !==null) {%>
                     <%=producto.description%>
@@ -54,7 +55,7 @@
                 </p>
               </article>
               <!--Precion del producto-->
-              <article class="articlePrecioProducto">
+              <article class="articlePrecioProducto" id="precioProducto">
                 <%=producto.price%>
               </article>
             </section>
@@ -62,20 +63,22 @@
             <section class="seccionAdicionarATarjeta">
               <article class="articuloAdicionarATarjeta">
                 <button class="botonAddToCart">-</button>
-                <input size="15" />
+                <input size="15" id="inputCantidadProducto"/>
                 <button class="botonAddToCart">+</button>
               </article>
+
               <article class="articuloAdicionarATarjeta">
-                <button class="boton">ADD TO CART</button>
-                <button class="boton">VIEW CART</button>
+                <button id="botonAdicionarATarjeta" name="<%= producto.id %>" class="boton">ADD TO CART</button>
+                <button id="botonVerTarjeta" class="boton">VIEW CART</button>
               </article>
             </section>
           </section>
         </section>
+       
       </main>
       <%- include('./partials/footer') %>
-        <p style="text-align:left">Copyright &copy; 2023 Convenciones Internacionales S.R.L.</p>
-
+      <p style="text-align:left">Copyright &copy; 2023 Convenciones Internacionales S.R.L.</p>
+      <script src="/js/productDetails.js"></script>  
   </body>
 
 

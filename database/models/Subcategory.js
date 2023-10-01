@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Category';
+    let alias = 'Subcategory';
     let cols = {
         id: {
             type: dataTypes.INTEGER.UNSIGNED,
@@ -9,7 +9,10 @@ module.exports = (sequelize, dataTypes) => {
         description: {
             type: dataTypes.STRING(100),
             allowNull: false
-        }  
+        },
+        subcategory_id: {
+            type: dataTypes.INTEGER.UNSIGNED
+        }     
     };
     let config = {
         timestamps: false
@@ -18,15 +21,20 @@ module.exports = (sequelize, dataTypes) => {
         //deletedAt: false
     }
     
-    const Category = sequelize.define(alias, cols, config);
+    const Subcategory = sequelize.define(alias, cols, config);
     
-    Category.associate = function (modelos) {
+    Subcategory.associate = function (modelos) {
         
-        Category.hasMany(modelos.Subcategory, {
-            as: "subcategories",            
+        Subcategory.belongsTo(modelos.Category, {
+            as: "categoria",            
+            foreignKey: "category_id"           
+        });
+        
+        Subcategory.hasMany(modelos.Product, {
+            as: "productos",            
             foreignKey: "subcategory_id"           
         });
     };
 
-    return Category;
+    return Subcategory;
 };

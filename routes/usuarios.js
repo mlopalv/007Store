@@ -27,40 +27,13 @@ const validaciones = [
     ).withMessage("La contraseña no coincide con la contraseña de control.")   
 ];
 
-/** Chevo **/
+
 router.get('/users/login', usersController.login);
-
 router.post('/users/login', usersController.processLogin);
-
 router.get('/users/register', usersController.register);
-
 router.post('/users/processRegister', validaciones, usersController.processRegister);
-
 router.get('/users/profile', usersController.getProfile);
-
 router.get('/users/logout', usersController.logout);
-
-//router.get('/users/profile', usersController.showProfile);
-/*
-router.post('/users/login', [
-        check('email').isEmail().withMessage('Email invalido'),
-        check('password').isEmpty().withMessage('Contrasena vacia')
-        ],usersController.processLogin);
-*/
-
-//router.get('/products/create', controllersAdminProdChevo.create);
-//router.post('/products/savenew',  uploadFile.single("imagenProducto"), controllersAdminProdChevo.savenew);
-//router.get('/products/:id', controllersAdminProdChevo.show);
-//router.post('/products/create', controllersAdminProdChevo.save);
-/** Mauricio **/
-/* Ver los detalles de un producto especifico */
-//router.get('/products/:id', productController.details);
-/* Entrega el formulario de edicion de productos */
-//router.get('/products/:id/edit', productController.getById);
-/* Actualiza un producto especifico */
-//router.put('/products/:id', uploadFile.single("imagenProducto"), productController.update);
-/* Borra un producto especifico */
-//router.delete('/products/:id', productController.delete);
 
 
 

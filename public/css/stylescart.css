@@ -52,8 +52,6 @@ a:hover {
     /*padding: 0 20px;*/
 }
 
-.toolbar {}
-
 .section-body {
     width: 100%;
     display: flex;
@@ -202,7 +200,13 @@ a:hover {
 .cont-info-product {
     width: 100%;
     display: flex;
+    flex-direction: row;
+}
+
+.text-info-right {
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .cont-info-product-top {
@@ -217,11 +221,7 @@ a:hover {
     font-size: 16px;
 }
 
-.text-info-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+
 
 .text-amount {
     display: flex;
@@ -298,8 +298,6 @@ a:hover {
     color: #4a525d;
 }
 
-
-
 .cont-cards {
     display: flex;
     flex-direction: column;
@@ -357,8 +355,6 @@ a:hover {
 }
 
 @media (min-width:600px) {
-
-
     .cont-product {
         flex-direction: row;
     }
