@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title>The 007 Global Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/a215289790.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/stylesShoppingCart.css">
+
+<body>
+    <%- include('./partials/header') %>
+        <main class="main">
+
+            <!--sección general del producto-->
+            <section class="seccionGeneralProductos">
+               
+                <!--sección imágenes del producto-->
+                <section class="seccionImagenesDelProducto">
+                    <!--Sección imagen grande del producto-->
+                    <section class="seccionImagenPrincipalProducto">                        
+                        <img src="/images/productos/1695693036508.webp" class="imagenPrincipalDelProducto" />
+                        <article class="datoAdicionalDelProductoEnfasis">                            
+                            <span>
+                                Deluxe Coin
+                            </span>
+                            <span>
+                                Price per item: $ 200
+                            </span>                            
+                            <span>
+                                Quantity: XX
+                            </span>
+                        </article>                        
+                    </section>
+                    <!--Sección datos adicionales del producto-->
+                    <section class="seccionDatosAdicionalesProducto">
+                        <article class="articuloDatoAdicionalProducto">                            
+                            <span class="datoAdicionalDelProducto"> Total price for these items: £ 200 GBP</span>
+                        </article>                        
+                        <article class="articuloDatoAdicionalProducto">                           
+                            <a href="<%= '/products/14' %>" class="datoAdicionalDelProducto">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>                            
+                        </article>
+                    </section>
+                </section>
+
+
+                <!--sección imágenes del producto-->
+                <section class="seccionImagenesDelProducto">
+                    <!--Sección imagen grande del producto-->
+                    <section class="seccionImagenPrincipalProducto">                        
+                        <img src="/images/productos/1695693036508.webp" class="imagenPrincipalDelProducto" />
+                        <article class="datoAdicionalDelProductoEnfasis">                            
+                            <span>
+                                Deluxe Coin
+                            </span>
+                            <span>
+                                Price per item: $ 200
+                            </span>                            
+                            <span>
+                                Quantity: XX
+                            </span>
+                        </article>                        
+                    </section>
+                    <!--Sección datos adicionales del producto-->
+                    <section class="seccionDatosAdicionalesProducto">
+                        <article class="articuloDatoAdicionalProducto">                            
+                            <span class="datoAdicionalDelProducto"> Total price for these items: £ 200 GBP</span>
+                        </article>                        
+                        <article class="articuloDatoAdicionalProducto">                           
+                            <a href="<%= '/products/14' %>" class="datoAdicionalDelProducto">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>                            
+                        </article>
+                    </section>
+                </section>           
+
+            </section>
+
+        </main>
+        <%- include('./partials/footer') %>
+            <script src="/js/productCart.js"></script>
+</body>
+
+</html>

@@ -12,6 +12,7 @@ window.onload = function () {
     let nombreProducto = document.querySelector("#nombreProducto");
     let descripcionProducto = document.querySelector("#descripcionProducto");
     let precioProducto = document.querySelector("#precioProducto");
+    let rutaImagenProducto = document.querySelector("#imagenProducto");
 
     //Se puede iterar el local storage usando este loop:
     for (let i = 0; i < localStorage.length; i++) {
@@ -27,13 +28,17 @@ window.onload = function () {
         let textoNombreProducto = nombreProducto.innerText;
         let textoDescripcionProducto = descripcionProducto.innerText;
         let valorPrecioProducto = precioProducto.innerText;
+        let valorRutaImagenProducto = rutaImagenProducto.getAttribute("src");
+
+        console.log("Ruta de la imagen del producto: "+valorRutaImagenProducto);
 
         let producto = {
             id: idProducto,
             cantidad: cantidadProducto,
             nombre: textoNombreProducto.trim(),
             descripcion: textoDescripcionProducto.trim(),
-            precio: valorPrecioProducto
+            precio: valorPrecioProducto,
+            rutaImagen: valorRutaImagenProducto
         };
 
         if (localStorage.getItem(sessionId) == null) {

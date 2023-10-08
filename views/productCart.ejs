@@ -1,65 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <%- include('./partials/head') %>
-    <body>
-        <%- include('./partials/header') %>
-    <section class="section-body-cart">
-        <div class="cont-cart">
-            <div class="title">
-                <h2 class="text-title">Carro de compras</h2>
-            </div>
-            <div class="cont-info-product-top">
-                <div class="second-title">
-                    <h3 class="text-second-title">Your items</h3>
-                </div>
-                <div class="cont-product" id="divContainerProducto">
-                    <!--<div class="cont-info-product">                        
-                        <div class="cont-image">
-                            <img class="image" src="/images/productDetails/productDetailsSample1.webp" alt="">
-                        </div>
-                        <div class="text-info-right">
-                            <div>
-                                <h3 class="text-info margin-bottom">Product name: James Bond Spymaster pen</h3>
-                                <h3 class="text-info" id="idProducto">Código: </h3>
-                            </div>
-                            <div class="text-price-unit">
-                                <h3 class="text-info title-amount" id="precioProducto">Price:</h3>
-                                <h3 class="text-info">$<span id="price">20.00</span></h3>
-                            </div>
-                            <div class="text-amount">
-                                <h3 class="text-info title-amount" id="cantidadProducto">Quantity:</h3>
-                                <div class="button-min-max">
-                                    <button class="button-min" onclick="min()"><span class="text-info">-</span></button>
-                                    <span class="text-info" id="number">0</span>
-                                    <button class="button-max" onclick="max()"><span class="text-info">+</span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->                   
-                </div>
-                <div class="cont-summary-total">
-                    <h3 class="text-info">Order summary</h3>
-                    <div class="text-title-product">
-                        <h3 class="text-info">Products:</h3>
-                        <h3 class="text-info"><span id="number2">0</span></h3>
-                    </div>
-                    <div class="text-total-product">
-                        <h3 class="text-info">Total:</h3>
-                        <h3 class="text-info"><span id="total">0</span></h3>
-                    </div>
-                    <div class="cont-button-total">
-                        <button class="button-total">Continue shopping</button>
-                    </div>
-                </div>
+<meta charset="UTF-8">
+<title>The 007 Global Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/a215289790.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/stylesShoppingCart.css">
 
-            </div>            
-        </div>
-    </section>
-    <main>
+<body>
+    <%- include('./partials/header') %>
+        <main class="main">
 
-    </main>
-    <%- include('./partials/footer') %>
-    <script src="/js/productCart.js"></script> 
+            <!--sección general del producto-->
+            <section class="seccionGeneralProductos" id="sectionContainerProducto">               
+                
+                         
+
+            </section>
+
+        </main>
+        <%- include('./partials/footer') %>
+        <script src="/js/productCart.js"></script>
 </body>
 
 </html>
+
+<!--
+<section class="seccionImagenesDelProducto">                    
+    <section class="seccionImagenPrincipalProducto">                        
+        <img src="/images/productos/1695693036508.webp" class="imagenPrincipalDelProducto" />
+        <article class="datoAdicionalDelProductoEnfasis">                            
+            <span>Deluxe Coin</span>
+            <span>Price per item: $ 200</span>                            
+            <span>Quantity: XX</span>
+        </article>                        
+    </section>                   
+    <section class="seccionDatosAdicionalesProducto">
+        <article class="articuloDatoAdicionalProducto">                            
+            <span class="datoAdicionalDelProducto"> Total price for these items: £ 200 GBP</span>
+        </article>                        
+        <article class="articuloDatoAdicionalProducto">                           
+            <a href="<%= '/products/14' %>" class="datoAdicionalDelProducto">
+                <i class="fa-solid fa-eye"></i>
+            </a>                            
+        </article>
+    </section>                
+</section>-->     

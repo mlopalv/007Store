@@ -5,12 +5,34 @@
 <%- include('./partials/head') %>
   <body>
     <%- include('./partials/header') %>
-    <main>       
-        <form action="/products/<%=producto.id%>/?_method=PUT" method="POST" class="formProductCreate"clear enctype="multipart/form-data">
+    <main>
+      <!-- Para el dsplegar los errores recibidos desde el backend -->
+      <% if(typeof errors !='undefined' ) { %>
+        <div class="product-register-div-errors">
+          <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:
+          </p>
+          <ul class="ul-nodots">
+            <% for (let i=0; i < errors.length; i++) { %>
+              <li>
+                <%= errors[i].msg %>
+              </li>
+              <% } %>
+          </ul>
+        </div>
+        <% } %>
+         <!--Validaciones front end-->
+         <div id="divErroresFrontEnd" class="register-div-errors">
+          <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:
+          </p>
+          <ul id="ulErroresFrontEnd" class="ul-nodots">
+
+          </ul>
+        </div>       
+        <form id="formularioRegistroProductos" action="/products/<%=producto.id%>/?_method=PUT" method="POST" class="formProductCreate"clear enctype="multipart/form-data">
             <h3 class="headerDescripcionDelProducto">Edición de producto</h3>
-            <input type="text" name="name" placeholder="Nombre del producto" class="formProductCreateEditTextInput" value="<%=producto.name%>">
+            <input id="formNombre" type="text" name="name" placeholder="Nombre del producto" class="formProductCreateEditTextInput" value="<%=producto.name%>">
             <br>
-            <textarea name="description" rows="12" cols="50" class="formProductCreateEditTextInput" placeholder="Descripción del producto">
+            <textarea id="formDescripcion" name="description" rows="12" cols="50" class="formProductCreateEditTextInput" placeholder="Descripción del producto">
               <% if (producto.description !== null) {%>
                       <%=producto.description%>
               <% }else{ %>
@@ -18,7 +40,7 @@
               <% } %>               
             </textarea>            
             <br>
-            <input type="number" name="price" class="formProductCreateEditTextInput" placeholder="Precio del producto"
+            <input id="formCosto" type="number" name="price" class="formProductCreateEditTextInput" placeholder="Precio del producto"
                 value="<%=producto.price%>"> 
             
             <img src="/images/productos/<%=producto.image_path%>" alt="<%=producto.name%>"/>
@@ -34,5 +56,6 @@
         </form>
     </main>
     <%- include('./partials/footer') %>
+    <script src="/js/productEdit.js"></script>
   </body>
 </html>

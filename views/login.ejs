@@ -6,7 +6,7 @@
         <main>
             <% if(typeof errors != 'undefined') { %>
                 <div class="login-div-errors">
-                    <p style="color:red"> ERROR</p>
+                    <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:</p>
                     <ul class="ul-nodots">
                         <% for (let i=0; i < errors.length; i++) { %>
                             <li>
@@ -16,17 +16,25 @@
                     </ul>
                 </div>
             <% } %>
-            <form action="/users/login" method="POST" class="form-reg-user">
-                <input type="text" name="email" placeholder="Correo de usuario" class="regular-text">
+            <!--Validaciones front end-->
+            <div id="divErroresFrontEnd" class="register-div-errors">
+                <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:</p>
+                <ul id="ulErroresFrontEnd" class="ul-nodots">                    
+                
+                </ul>
+            </div>        
+            <form id="formularioLoginUsuarios" action="/users/login" method="POST" class="form-reg-user">
+                <input id="formEmail" type="text" name="email" placeholder="Correo de usuario" class="regular-text">
                 <br>
-                <input type="password" name="password" placeholder="Contrasena" class="regular-text">
+                <input id="formPassword" type="password" name="password" placeholder="Contrasena" class="regular-text">
                 <br>
                 <label class="label">Recordarme</label>
                 <input type="checkbox" name="recordar" class="check">
                 <br>
-                <button type="submit" class="but-submit">Login</button><br>
+                <button id="botonSubmitFormulario" type="submit" class="but-submit">Login</button><br>
             </form>            
         </main>
-        <%- include('./partials/footer') %>      
+        <%- include('./partials/footer') %>
+        <script src="/js/userLogin.js"></script>        
     </body>
 </html>

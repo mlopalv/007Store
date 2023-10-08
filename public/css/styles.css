@@ -97,6 +97,21 @@ a {
     
 }
 
+.register-div-errors {
+    text-align: left;
+    /*width: 80%;*/
+    margin: auto;
+    max-width: 400px;
+    padding-bottom: 20px;   
+    padding-top: 20px; 
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    .ul-nodots {
+        list-style: none;
+    }
+}
+
 .form-reg-user {
     /*text-align: center;*/
     width: 80%;
@@ -169,26 +184,36 @@ a {
 }
 
 .login-div-errors {
-    text-align: center;
-    width: 80%;
-    margin: auto;
-    max-width: 400px;   
-
-    .ul-nodots {
-        list-style: none;
-    }
-}
-
-.register-div-errors {
     text-align: left;
-    width: 80%;
+    /*width: 80%;*/
     margin: auto;
-    max-width: 400px;   
-
+    max-width: 400px;
+    padding-bottom: 20px;   
+    padding-top: 20px; 
+    padding-left: 10px;
+    padding-right: 10px;
+    
     .ul-nodots {
         list-style: none;
     }
 }
+
+.product-register-div-errors {
+    text-align: left;
+    /*width: 80%;*/
+    margin: auto;
+    max-width: 450px;
+    padding-bottom: 20px;   
+    padding-top: 20px; 
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    .ul-nodots {
+        list-style: none;
+    }
+}
+
+
 
 
 @media (min-width:900px) {

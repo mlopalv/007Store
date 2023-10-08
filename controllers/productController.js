@@ -1,8 +1,31 @@
 const fs = require("fs");
 const path = require('path');
+const { validationResult } = require('express-validator');
 let db = require("../database/models");
 
 productController = {
+
+    productList: (req, res) => {
+        db.Product.findAll({
+            include: [{
+                model: db.Category,
+                as: "category"
+            }]
+        })
+            .then(productos => {
+                console.log("Direccionando hacia productList");
+                console.log("El tamano del inventario de productos es: " + productos.length)
+                /** Obtener las categorías de productos */
+                return productos;
+
+            }).then(productos => {
+                db.Category.findAll()
+                    .then(categorias => {
+                        console.log("Direccionando hacia creacion de productos.");
+                        res.render("productList", { productos, categorias });
+                    });
+            });
+    },
 
     index: (req, res) => {
 
@@ -25,6 +48,7 @@ productController = {
     },
 
     savenew: (req, res) => {
+
         console.log('Creando nuevo producto ...');
         console.log('nombre = ' + req.body.nombre);
         console.log('descripcion = ' + req.body.descripcion);
@@ -34,23 +58,49 @@ productController = {
 
         console.log("Valor de req.body.imagenProducto = " + req.body.imagenProducto);
 
-        db.Product.create({
-            name: req.body.nombre,
-            description: req.body.descripcion,
-            price: Number(req.body.costo),
-            subcategory_id: 1,
-            image_path: prodImage
+        let errors = validationResult(req);
 
-        }).then(product => {
-            console.log("Producto agregado correctamente: " + product.name);
+        if (errors.isEmpty()) {
+
+            db.Product.create({
+                name: req.body.nombre,
+                description: req.body.descripcion,
+                price: Number(req.body.costo),
+                category_id: 1,
+                image_path: prodImage
+
+            }).then(product => {
+                console.log("Producto agregado correctamente: " + product.name);
+            }
+            ).then(
+                db.Product.findAll()
+                    .then(inventario => {
+                        console.log("Direccionando hacia productIndex");
+                        res.render("productIndex", { inventario });
+                    })
+            );
+
+        } else {
+            console.log("El registro de producto tiene algunos errores ... " + errors.errors.length);
+            errors = errors.errors;
+
+            db.Category.findAll()
+                .then(allCategories => {
+                    console.log("Direccionando hacia creacion de productos.");
+                    console.log("Tamano del arreglo de errores: " + errors.length);
+
+                    res.render("productCreate.ejs", {
+                        allCategories, errors, oldData: {
+                            nombre: req.body.nombre,
+                            descripcion: req.body.descripcion,
+                            costo: Number(req.body.costo),
+                            categoria: 1,
+                            image_path: prodImage
+                        }
+                    });
+
+                });
         }
-        ).then(
-            db.Product.findAll()
-                .then(inventario => {
-                    console.log("Direccionando hacia productIndex");
-                    res.render("productIndex", { inventario });
-                })
-        );
 
     },
     details: (req, res) => {
@@ -89,32 +139,57 @@ productController = {
 
         let prodImage = req.file ? req.file.filename : req.body.oldImage;
 
-        db.Product.findByPk(idProducto)
-            .then(producto => {
-                console.log("Obteniendo producto para actualización: " + idProducto);
-                console.log("Imagen del producto: " + producto.image_path);
+        let errors = validationResult(req);
 
-                return producto;
-            }).then(producto => {
+        if (errors.isEmpty()) {
 
-                producto = producto.update({
-                    name: req.body.name,
-                    description: req.body.description,
-                    price: Number(req.body.price),
-                    subcategory_id: 1,
-                    image_path: prodImage
+            db.Product.findByPk(idProducto)
+                .then(producto => {
+                    console.log("Obteniendo producto para actualización: " + idProducto);
+                    console.log("Imagen del producto: " + producto.image_path);
+
+                    return producto;
                 }).then(producto => {
-                    producto.save();
-                    return producto
+
+                    producto = producto.update({
+                        name: req.body.name,
+                        description: req.body.description,
+                        price: Number(req.body.price),
+                        category_id: 1,
+                        image_path: prodImage
+                    }).then(producto => {
+                        producto.save();
+                        return producto
+                    });
+
+                    return producto;
+
+                }).then(producto => {
+                    console.log("Actualización realizada corectamente: " + producto.id);
+                    console.log("Producto actualizado correctamente.");
+                    res.redirect("/");
                 });
+        } else {
+            console.log("La actualización del producto tiene algunos errores ... " + errors.errors.length);
+            errors = errors.errors;         
 
-                return producto;
-
-            }).then(producto => {
-                console.log("Actualización realizada corectamente: " + producto.id);
-                console.log("Producto actualizado correctamente.");
-                res.redirect("/");
-            });
+            
+            db.Product.findByPk(idProducto)
+                .then(producto => {
+                    console.log("Direccionando hacia productDetails con productoId = " + idProducto);
+                    console.log("Imagen del producto: " + producto.image_path);
+                    console.log("Renderizando vista de edicion de productos");
+                    res.render("productEdit", { producto: {                        
+                        id: idProducto,
+                        name: req.body.name,
+                        description: req.body.description,
+                        price: Number(req.body.price),
+                        category_id: 1,
+                        image_path: prodImage
+                    }, errors});
+                    
+                });           
+        }
 
     },
 
@@ -150,7 +225,7 @@ productController = {
 
         db.Category.findAll()
             .then(categorias => {
-                
+
                 var data_arr = [];
 
                 categorias.forEach(function (categoria) {

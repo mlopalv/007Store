@@ -18,6 +18,7 @@ const usersController = {
     },
     //seccion para registrar nuevos usuarios - procesar el registro cuando dan click a REGISTRAR
     processRegister: function (req, res) {
+        //Obtener el resultado de las validaciones
         let errors = validationResult(req);
 
         let usuarioARegistrar = {
@@ -31,7 +32,7 @@ const usersController = {
             categoria: "general"
         };
 
-        //console.log('To String = ' + JSON.stringify(req.body.pais));
+       
 
         if (errors.isEmpty()) {
             console.log("No hay errores ...");
@@ -60,9 +61,9 @@ const usersController = {
 
         } else {
             console.log("Existen errores en el registro del nuevo usuario.");
-            console.log(JSON.stringify(errors, null, 4));
-            console.log(JSON.stringify(usuarioARegistrar, null, 4));
-            return res.render('register', { errors: errors.errors, oldData: usuarioARegistrar });
+            //console.log(JSON.stringify(errors, null, 4));
+            //console.log(JSON.stringify(usuarioARegistrar, null, 4));
+            return res.render("register", { errors: errors.errors, oldData: usuarioARegistrar });
         }
     },
 
@@ -78,6 +79,7 @@ const usersController = {
     },
     //seccion para hacer login - cuando el usuario da click en LOGIN
     processLogin: function (req, res) {
+        
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
@@ -118,13 +120,18 @@ const usersController = {
                     } else {
                         console.log("El usuario no se encuentra en la base de datos. Desplegando login nuevamente. " + user);
 
-                        return res.render('login', {
+                        return res.render("login", {
                             errors: [
                                 { msg: "Usuario o contraseña inválidos." }
                             ]
                         })
                     }
                 });
+        }else {
+            console.log("Existen errores en el ingreso de información de login.");
+            //console.log(JSON.stringify(errors, null, 4));
+            //console.log(JSON.stringify(usuarioARegistrar, null, 4));
+            return res.render("login", { errors: errors.errors });
         }
     },
 

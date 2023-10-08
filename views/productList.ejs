@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+    <meta charset="UTF-8">
+    <title>The 007 Global Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />        
+    <script src="https://kit.fontawesome.com/a215289790.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/stylesProductList.css">
+  <body>
+    <%- include('./partials/header') %>
+      <main class="main">
+
+        <!--sección general del producto-->        
+        <section class="seccionGeneralProductos">
+          <!-- Acá debe ir un for para mostrar los productos x categoría -->
+          <% for (let categoriesIndex = 0; categoriesIndex < categorias.length; categoriesIndex++ ){ %>
+          <!--sección titulo categoría producto-->          
+          <section class="seccionTituloCategoriaDelProducto">
+            <span class="tituloCategoriaDelProducto"><%= categorias[categoriesIndex].description%> </span>
+          </section>  
+          <% for (let productIndex = 0; productIndex < productos.length; productIndex++ ){ %>          
+          <% if (productos[productIndex].category.description ===  categorias[categoriesIndex].description){ %>
+          <!--sección imágenes del producto-->
+          <section class="seccionImagenesDelProducto">
+            <!--Sección imagen grande del producto-->
+            <section class="seccionImagenPrincipalProducto">
+              <!--<div class="divLeftArrowArticuloImagenPrincipalProducto">
+                <i class="fa-regular fa-square-caret-left iconoFlecha"></i>
+              </div>-->
+              <img src="/images/productos/<%=productos[productIndex].image_path%>" class="imagenPrincipalDelProducto" />
+              <article>
+                <!--<img src="/images/productos/<%=productos[productIndex].image_path%>" class="imagenAdicionalDelProducto" />-->
+                <span class="datoAdicionalDelProductoEnfasis"><%=productos[productIndex].name%></span>
+              </article>
+              <!--<div class="divRightArrowArticuloImagenPrincipalProducto">
+                <i class="fa-regular fa-square-caret-right iconoFlecha"></i>
+              </div>-->
+            </section>
+            <!--Sección imagenes pequeñas del producto-->
+            <section class="seccionDatosAdicionalesProducto">
+              <article class="articuloDatoAdicionalProducto">
+                <!--<img src="/images/productos/<%=productos[productIndex].image_path%>" class="imagenAdicionalDelProducto" />-->
+                <span class="datoAdicionalDelProducto"> £ <%=productos[productIndex].price%> GBP</span>
+              </article>
+              <!--<article class="articuloImagenAdicionalProducto">
+                <img src="/images/productos/<%=productos[productIndex].image_path%>" class="imagenAdicionalDelProducto" />
+              </article>-->
+              <article class="articuloDatoAdicionalProducto">
+                <!--<img src="/images/productos/<%=productos[productIndex].image_path%>" class="imagenAdicionalDelProducto" />-->
+                <!--<li class="liver">-->
+                  <a href="<%= '/products/' + productos[productIndex].id%>" class="datoAdicionalDelProducto">
+                      <i class="fa-solid fa-eye"></i>
+                  </a>
+                <!--</li>-->
+              </article>
+            </section>
+          </section>   
+          <%}%>
+          <%}%>
+          <%}%>
+        </section>
+       
+      </main>
+      <%- include('./partials/footer') %>
+      <p style="text-align:left">Copyright &copy; 2023 Convenciones Internacionales S.R.L.</p>
+      <!--<script src="/js/productDetails.js"></script>-->  
+  </body>
+
+
+</html>

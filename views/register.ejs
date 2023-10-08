@@ -5,9 +5,11 @@
         <%- include('./partials/header') %>
 
         <main>
+            <!--Validaciones backend-->
             <% if(typeof errors != 'undefined') { %>
                 <div class="register-div-errors">
-                    <p style="color:red"> ERROR</p>
+                    <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:</p>
+
                     <ul class="ul-nodots">
                         <% for (let i=0; i < errors.length; i++) { %>
                             <li>
@@ -16,9 +18,16 @@
                         <% } %>
                     </ul>
                 </div>
-            <% } %>            
-            <form action="/users/processRegister" method="POST" class="form-reg-user">
-                <input type="text" name="nombre" placeholder="Nombre" class="regular-text"
+            <% } %>
+            <!--Validaciones front end-->
+            <div id="divErroresFrontEnd" class="register-div-errors">
+                <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:</p>
+                <ul id="ulErroresFrontEnd" class="ul-nodots">                    
+                
+                </ul>
+            </div>            
+            <form action="/users/processRegister" method="POST" class="form-reg-user" id="formularioRegistroUsuarios">
+                <input id="formNombre" type="text" name="nombre" placeholder="Nombre" class="regular-text"
                 <% if(typeof oldData != 'undefined') { %>
                     value="<%= oldData.nombre %>"
                 <% } else { %>
@@ -26,7 +35,7 @@
                 <% } %>
                 >
                 <br>
-                <input type="text" name="apellido" placeholder="Apellido" class="regular-text"
+                <input id="formApellido" type="text" name="apellido" placeholder="Apellido" class="regular-text"
                 <% if(typeof oldData != 'undefined') { %>
                     value="<%= oldData.apellido %>"
                 <% } else { %>
@@ -34,7 +43,7 @@
                 <% } %>
                 >
                 <br>
-                <input type="text" name="usuario" class="regular-text" placeholder="Nombre de usuario"
+                <input id="formUsuario" type="text" name="usuario" class="regular-text" placeholder="Nombre de usuario"
                 <% if(typeof oldData != 'undefined') { %>
                     value="<%= oldData.usuario %>"
                 <% } else { %>
@@ -42,7 +51,7 @@
                 <% } %>                
                 >
                 <br>
-                <input type="email" name="email" class="regular-text" placeholder="E-mail"
+                <input id="formEmail" name="email" class="regular-text" placeholder="E-mail"
                 <% if(typeof oldData != 'undefined') { %>
                     value="<%= oldData.email %>"
                 <% } else { %>
@@ -50,14 +59,14 @@
                 <% } %>                
                 >
                 <br>                
-                <input type="password" name="pass1" class="regular-text" placeholder="Password"
+                <input id="formPassword1" type="password" name="pass1" class="regular-text" placeholder="Password"
                 <% if(typeof oldData != 'undefined') { %>
                     value="<%= oldData.password1 %>"
                 <% } else { %>
                     value=""    
                 <% } %>                
                 ><br>               
-                <input type="password" name="pass2" class="regular-text" placeholder="Confirmación password"
+                <input id="formPassword2" type="password" name="pass2" class="regular-text" placeholder="Confirmación password"
                 <% if(typeof oldData != 'undefined') { %>
                     value="<%= oldData.password2 %>"
                 <% } else { %>
@@ -67,10 +76,11 @@
                 <br>
                 <hr>
                 <br>                
-                <button type="submit">Registrar</button><br>
+                <button id="botonSubmitFormulario" type="submit">Registrar</button><br>
                 <button type="reset">Borrar</button><br>
             </form>
         </main>
-        <%- include('./partials/footer') %>       
+        <%- include('./partials/footer') %>
+        <script src="/js/userRegister.js"></script>       
     </body>
 </html>

@@ -5,39 +5,81 @@
   <body>
     <%- include('./partials/header') %>
       <main>
+        <!-- para el dsplegar los errores recibidos desde el backend -->
+        <% if(typeof errors !='undefined' ) { %>
+          <div class="product-register-div-errors">
+            <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:
+            </p>
+            <ul class="ul-nodots">
+              <% for (let i=0; i < errors.length; i++) { %>
+                <li>
+                  <%= errors[i].msg %>
+                </li>
+                <% } %>
+            </ul>
+          </div>
+          <% } %>
+            <!--Validaciones front end-->
+            <div id="divErroresFrontEnd" class="register-div-errors">
+              <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:
+              </p>
+              <ul id="ulErroresFrontEnd" class="ul-nodots">
 
-        <form action="/products/savenew" method="POST" class="formProductCreate" enctype="multipart/form-data">
-          <h3 class="headerDescripcionDelProducto">Registro de nuevo producto</h3>
-          <input type="text" name="nombre" placeholder="Nombre del producto" class="formProductCreateEditTextInput">
-          <br>
-          <textarea id="story" name="descripcion" rows="12" class="formProductCreateEditTextInput"
-            placeholder="Descripción del producto">
-            </textarea>
-          <br>
-          <input type="number" name="costo" class="formProductCreateEditTextInput" placeholder="Costo del producto">
-          <br>
-          <select name="categoria_id" id="listadoCategorias" class="formProductCreateEditTextInput" required>
-            <option value="" class="formProductCreateEditTextInput" disabled selected>- seleccione categoria - </option>
-            <% allCategories.forEach ( categoria=> { %>
-              <option value="<%= categoria.id %>" class="formProductCreateEditTextInput">
-                <%= categoria.description %>
-              </option>
-              <% }); %>
-          </select>
-          <h3>Foto del producto</h3>
-          <!--<img src="/images/productos/logo-2.png" class="imagenAdicionalDelProducto" />-->
-          <img src="/images/logo-2.png" />
-          <input type="hidden" name="oldImage" value="/images/logo-2.png">
-          <input type="file" name="imagenProducto" id="image" class="formProductCreateEditTextInput"
-            value="/images/logo-2.png">
-          <br>
-          <br>
-          <button type="submit">Enviar</button><br>
-          <button type="reset">Borrar</button><br>
-        </form>
+              </ul>
+            </div>
+
+            <form id="formularioRegistroProductos" action="/products/savenew" method="POST" class="formProductCreate"
+              enctype="multipart/form-data">
+              <h3 class="headerDescripcionDelProducto">Registro de nuevo producto</h3>
+              <input id="formNombre" type="text" name="nombre" placeholder="Nombre del producto" class="formProductCreateEditTextInput"
+                <% if(typeof oldData !='undefined' ) { %>
+              value="<%= oldData.nombre %>"
+                <% } else { %>
+                  value=""
+                  <% } %>
+                    >
+                    <br>
+                    <textarea id="formDescripcion" name="descripcion" rows="12" class="formProductCreateEditTextInput"
+                      placeholder="Descripción del producto">
+               <% if(typeof oldData !='undefined' ) { %>
+                <%= oldData.descripcion %>
+               <% } %>             
+              </textarea>
+                    <br>
+                    <input id="formCosto" type="number" name="costo" class="formProductCreateEditTextInput"
+                      placeholder="Costo del producto" <% if(typeof oldData !='undefined' ) { %>
+                    value="<%= oldData.costo %>"
+                      <% } else { %>
+                        value=""
+                        <% } %>
+                          >
+                          <br>
+                          <select name="categoria_id" id="listadoCategorias" class="formProductCreateEditTextInput"
+                            required>
+                            <option value="" class="formProductCreateEditTextInput" disabled selected>- seleccione
+                              categoria
+                              -
+                            </option>
+                            <% allCategories.forEach ( categoria=> { %>
+                              <option value="<%= categoria.id %>" class="formProductCreateEditTextInput">
+                                <%= categoria.description %>
+                              </option>
+                              <% }); %>
+                          </select>
+                          <h3>Foto del producto</h3>
+                          <!--<img src="/images/productos/logo-2.png" class="imagenAdicionalDelProducto" />-->
+                          <img src="/images/logo-2.png" />
+                          <input type="hidden" name="oldImage" value="/images/logo-2.png">
+                          <input type="file" name="imagenProducto" id="image" class="formProductCreateEditTextInput"
+                            value="/images/logo-2.png">
+                          <br>
+                          <br>
+                          <button type="submit">Enviar</button><br>
+                          <button type="reset">Borrar</button><br>
+            </form>
       </main>
       <%- include('./partials/footer') %>
-      <script src="/js/productCreate.js"></script>    
+     <script src="/js/productCreate.js"></script>
   </body>
 
 </html>
