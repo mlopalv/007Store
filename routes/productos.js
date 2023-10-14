@@ -12,8 +12,17 @@ const validaciones = [
     
     body("descripcion").notEmpty().withMessage("BV: La descripción del producto debe tener un valor."),
     body("descripcion").isLength({min: 20}).withMessage("BV: La dscripción del producto debe de ser por lo menos de 20 caracteres."),
+
+    body("categoriaId").notEmpty().withMessage("Debe ingresar un valor válido de categoría."),
+    body("categoriaId").custom ( (value, { req }) => {            
+        console.log("Dentro de validador de categoria ID" + value);
+        console.log("Evaluador de categoria ID:"+(parseInt(value) === -1));
+        return parseInt(value) !== -1;
+     }
+    ).withMessage("BV: Debe ingresar un valor válido de categoría."), 
     
-    body("costo").notEmpty().withMessage("BV: El costo del producto debe tener un valor.")    
+    body("costo").notEmpty().withMessage("BV: El costo del producto debe tener un valor.")
+
       
 ];
 //Tuve que duplicar las validaciones porque lo nombres de los campos son diferentes en las pagina de creacion y edicion
@@ -24,6 +33,14 @@ const validacionesEdicionProducto = [
     
     body("description").notEmpty().withMessage("BV: La descripción del producto debe tener un valor."),
     body("description").isLength({min: 20}).withMessage("BV: La dscripción del producto debe de ser por lo menos de 20 caracteres."),
+
+    body("categoriaId").notEmpty().withMessage("Debe ingresar un valor válido de categoría."),
+    body("categoriaId").custom ( (value, { req }) => {            
+        console.log("Dentro de validador de categoria ID" + value);
+        console.log("Evaluador de categoria ID:"+(parseInt(value) === -1));
+        return parseInt(value) !== -1;
+     }
+    ).withMessage("BV: Debe ingresar un valor válido de categoría."),
     
     body("price").notEmpty().withMessage("BV: El costo del producto debe tener un valor.")    
       

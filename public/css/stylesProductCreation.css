@@ -21,6 +21,14 @@
     margin-bottom: 5px;
 }
 
+.formProductCreateEditSelectInput {
+    width: 450px;
+    padding: 10px;
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .formProductCreate button {
     width: 450px;
     margin: auto;

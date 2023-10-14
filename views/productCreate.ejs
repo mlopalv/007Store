@@ -40,11 +40,7 @@
                     >
                     <br>
                     <textarea id="formDescripcion" name="descripcion" rows="12" class="formProductCreateEditTextInput"
-                      placeholder="Descripción del producto">
-               <% if(typeof oldData !='undefined' ) { %>
-                <%= oldData.descripcion %>
-               <% } %>             
-              </textarea>
+                      placeholder="Descripción del producto"><% if(typeof oldData !='undefined' ) { %><%= oldData.descripcion.trim() %><% } %></textarea>
                     <br>
                     <input id="formCosto" type="number" name="costo" class="formProductCreateEditTextInput"
                       placeholder="Costo del producto" <% if(typeof oldData !='undefined' ) { %>
@@ -54,21 +50,16 @@
                         <% } %>
                           >
                           <br>
-                          <select name="categoria_id" id="listadoCategorias" class="formProductCreateEditTextInput"
+                          <select name="categoriaId" id="listadoCategorias" class="formProductCreateEditSelectInput"
                             required>
-                            <option value="" class="formProductCreateEditTextInput" disabled selected>- seleccione
-                              categoria
-                              -
-                            </option>
+                            <option value="-1" disabled selected>seleccione categoria</option>
                             <% allCategories.forEach ( categoria=> { %>
-                              <option value="<%= categoria.id %>" class="formProductCreateEditTextInput">
-                                <%= categoria.description %>
-                              </option>
-                              <% }); %>
+                              <option value="<%= categoria.id %>"><%= categoria.description %></option>
+                            <% }); %>
                           </select>
                           <h3>Foto del producto</h3>
                           <!--<img src="/images/productos/logo-2.png" class="imagenAdicionalDelProducto" />-->
-                          <img src="/images/logo-2.png" />
+                          <img src="/images/logo-2.png" id="previewImage"/>
                           <input type="hidden" name="oldImage" value="/images/logo-2.png">
                           <input type="file" name="imagenProducto" id="image" class="formProductCreateEditTextInput"
                             value="/images/logo-2.png">

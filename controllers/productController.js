@@ -53,6 +53,7 @@ productController = {
         console.log('nombre = ' + req.body.nombre);
         console.log('descripcion = ' + req.body.descripcion);
         console.log('costo = ' + req.body.costo);
+        console.log("Id de la categoria: " + req.body.categoriaId);
 
         let prodImage = req.file ? req.file.filename : req.body.oldImage;
 
@@ -66,7 +67,7 @@ productController = {
                 name: req.body.nombre,
                 description: req.body.descripcion,
                 price: Number(req.body.costo),
-                category_id: 1,
+                category_id: parseInt(req.body.categoriaId),
                 image_path: prodImage
 
             }).then(product => {
@@ -117,17 +118,34 @@ productController = {
             });
 
     },
-    //Codigo manejo de persistencia con archivos planos
+    
     getById: (req, res) => {
         let idProducto = parseInt(req.params.id);
 
         //Codigo con manejo de persistencia usando sequielizer
-        db.Product.findByPk(idProducto)
-            .then(producto => {
-                console.log("Direccionando hacia productDetails con productoId = " + idProducto);
-                console.log("Imagen del producto: " + producto.image_path);
-                console.log("Renderizando vista de edicion de productos");
-                res.render("productEdit", { producto });
+        db.Product.findByPk(idProducto, {
+            include: [{
+                model: db.Category,
+                as: "category"
+            }]
+            }).then(producto => {
+                
+                return producto;
+                //res.render("productEdit", { producto });
+            }).then(producto => {
+                
+                db.Category.findAll()
+                .then(allCategories => {
+                    console.log("Imagen del producto: " + producto.image_path);
+                    console.log("Renderizando vista de edicion de productos");
+                    console.log("Direccionando hacia edición de producto con productId = " + producto.id);
+                    console.log("Direccionando hacia edición de producto con categoría = " + producto.category.id);
+                    
+                    res.render("productEdit", { producto, allCategories });                  
+
+                });
+
+
             });
 
     },
@@ -155,7 +173,7 @@ productController = {
                         name: req.body.name,
                         description: req.body.description,
                         price: Number(req.body.price),
-                        category_id: 1,
+                        category_id: parseInt(req.body.categoriaId),
                         image_path: prodImage
                     }).then(producto => {
                         producto.save();
@@ -218,6 +236,7 @@ productController = {
                 res.redirect("/");
             });
     },
+    
     categories: (req, res,) => {
         console.log("Obteniendo categorias ...");
         var type = req.query.type;

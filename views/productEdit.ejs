@@ -32,16 +32,23 @@
             <h3 class="headerDescripcionDelProducto">Edición de producto</h3>
             <input id="formNombre" type="text" name="name" placeholder="Nombre del producto" class="formProductCreateEditTextInput" value="<%=producto.name%>">
             <br>
-            <textarea id="formDescripcion" name="description" rows="12" cols="50" class="formProductCreateEditTextInput" placeholder="Descripción del producto">
-              <% if (producto.description !== null) {%>
-                      <%=producto.description%>
-              <% }else{ %>
-                      "Descripción del producto ...";
-              <% } %>               
-            </textarea>            
+            <textarea id="formDescripcion" name="description" rows="12" cols="50" class="formProductCreateEditTextInput" placeholder="Descripción del producto"><% if (producto.description !== null) {%><%=producto.description.trim()%><% } %></textarea>            
             <br>
             <input id="formCosto" type="number" name="price" class="formProductCreateEditTextInput" placeholder="Precio del producto"
-                value="<%=producto.price%>"> 
+                value="<%=producto.price%>">
+            <br>
+            <select name="categoriaId" id="listadoCategorias"  class="formProductCreateEditSelectInput" required>                  
+                  <% allCategories.forEach ( categoria=> { %>
+                    <!--<option value="<%= categoria.id %>" class="formProductCreateEditTextInput"><%= categoria.description %></option>-->
+                    <option value="<%= categoria.id %>"  
+                      <% if (producto.category.id == categoria.id) { %>
+                        <%= 'selected' %>
+                      <% }; %>
+                    >
+                    <%= categoria.description %>
+                  </option>
+                  <% }); %>
+                </select> 
             
             <img src="/images/productos/<%=producto.image_path%>" alt="<%=producto.name%>"/>
             <input type="hidden" name="oldImage" value="<%=producto.image_path%>">
