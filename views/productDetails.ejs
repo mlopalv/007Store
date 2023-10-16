@@ -8,7 +8,7 @@
     <%- include('./partials/header') %>
       <main class="main">
         <!--sección general del producto-->
-        
+       
         <section class="seccionGeneralProducto">
           <!--sección imágenes del producto-->
           <section class="seccionImagenesDelProducto">
@@ -63,17 +63,20 @@
             <section class="seccionAdicionarATarjeta">
               <article class="articuloAdicionarATarjeta">
                 <button class="botonAddToCart">-</button>
-                <input size="15" id="inputCantidadProducto"/>
+                <input size="15" id="inputCantidadProducto" class="inputAddToCart" value="1"/>
                 <button class="botonAddToCart">+</button>
               </article>
 
               <article class="articuloAdicionarATarjeta">
                 <button id="botonAdicionarATarjeta" name="<%= producto.id %>" class="boton">ADD TO CART</button>
-                <button id="botonVerTarjeta" class="boton">VIEW CART</button>
+                <button type="submit" id="botonVerTarjeta" class="boton" >
+                  <a href="/carrito" class="a-navbar">VIEW CART</a>
+                </button>
               </article>
             </section>
           </section>
         </section>
+        
        
       </main>
       <%- include('./partials/footer') %>

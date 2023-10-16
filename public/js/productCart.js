@@ -2,16 +2,18 @@ window.onload = function () {
     console.log("Cargando informacion del carro de compras.");
     let sessionId = "mlopalv@gmail.com";
     let carroCompras = null;
+    let productos = null;
     let divContainerProducto = document.querySelector("#sectionContainerProducto");
-
+    let producto = null;
+    let carroComprasString = null;
+    
+    
     if (localStorage.getItem(sessionId) !== null) {
         carroCompras = JSON.parse(localStorage.getItem(sessionId));
-        let productos = carroCompras.productos;
+        productos = carroCompras.productos;
         console.log("Tamano del carro de compras: " + productos.length);
-        let producto = null;
         
-
-
+        
         for (producto of productos) {
             
             divContainerProducto.innerHTML = divContainerProducto.innerHTML.concat("<section class=\"seccionImagenesDelProducto\">",
@@ -25,7 +27,12 @@ window.onload = function () {
                                                         "</section>",
                                                         "<section class=\"seccionDatosAdicionalesProducto\">",
                                                             "<article class=\"articuloDatoAdicionalProducto\">",
-                                                                "<span class=\"datoAdicionalDelProducto\"> Total price for these items: £ 200 GBP</span>",
+                                                                "<span class=\"datoAdicionalDelProducto\"> Total price for these items: £ "+ producto.cantidad * producto.precio +" GBP</span>",
+                                                            "</article>",
+                                                            "<article class=\"articuloDatoAdicionalProducto\">",
+                                                                "<a id='hrefEliminarDeCarrito' name='"+producto.id+"' href='' class=\"datoAdicionalDelProducto\">",
+                                                                    "<i class=\"fa-solid fa-trash-can\"></i>",
+                                                                "</a>",
                                                             "</article>",
                                                             "<article class=\"articuloDatoAdicionalProducto\">",
                                                                 "<a href=\"/products/"+producto.id+"\" class=\"datoAdicionalDelProducto\">",
@@ -33,31 +40,37 @@ window.onload = function () {
                                                                 "</a>",
                                                             "</article>",
                                                         "</section>",
-                                                    "</section>");
-            
-
-            /*divContainerProducto.innerHTML +=       "<img src=\"/images/productos/1695693036508.webp\" class=\"imagenPrincipalDelProducto\" />";
-            divContainerProducto.innerHTML +=       "<article class=\"datoAdicionalDelProductoEnfasis\">";  
-            divContainerProducto.innerHTML +=           "<span>Deluxe Coin</span>";
-            divContainerProducto.innerHTML +=           "<span>Price per item: $ 200</span>";    
-            divContainerProducto.innerHTML +=           "<span>Quantity: XX</span>";        
-            divContainerProducto.innerHTML +=       "</article>";        
-            divContainerProducto.innerHTML +=   "</section>";    
-            divContainerProducto.innerHTML +=   "<section class=\"seccionDatosAdicionalesProducto\">";    
-            divContainerProducto.innerHTML +=       "<article class=\"articuloDatoAdicionalProducto\">";        
-            divContainerProducto.innerHTML +=           "<span class=\"datoAdicionalDelProducto\"> Total price for these items: £ 200 GBP</span>";         
-            divContainerProducto.innerHTML +=       "</article>";               
-            divContainerProducto.innerHTML +=       "<article class=\"articuloDatoAdicionalProducto\">";     
-            divContainerProducto.innerHTML +=           "<a href=\"<%= '/products/14' %>\" class=\"datoAdicionalDelProducto\">";       
-            divContainerProducto.innerHTML +=               "<i class=\"fa-solid fa-eye\"></i>"   
-            divContainerProducto.innerHTML +=           "</a>" 
-            divContainerProducto.innerHTML +=       "</article>";
-            divContainerProducto.innerHTML +=   "</section>";
-            divContainerProducto.innerHTML += "</section>";*/
-            
-            //console.log(producto);
+                                                    "</section>");          
         }
-        
+            
+    }
     
-    }    
+    let hrefEliminarDeCarrito = document.getElementById("hrefEliminarDeCarrito");
+    let hrefsEliminarDeCarrito = document.querySelectorAll('#hrefEliminarDeCarrito');
+
+    for (hrefEliminarDeCarrito of hrefsEliminarDeCarrito) {
+        
+        hrefEliminarDeCarrito.addEventListener("click", (event) => {
+            event.preventDefault();
+            console.log("Click sobre el href de eliminación de producto de carrito."+event.currentTarget.name);
+            let idProducto = parseInt(event.currentTarget.name);
+            console.log("Tamaño productos antes del filtrado: "+productos.length);
+            
+            productos = productos.filter( p => { 
+                console.log("Id del producto evaluado: "+p.id);
+                console.log("Id del producto del href: "+idProducto);
+                return parseInt(p.id) !== idProducto
+            });
+            console.log("Tamaño productos después del filtrado: "+productos.length);
+
+            //Actualizar carro de compras
+            carroCompras.productos = productos;
+            console.log("Actualizando el carro de compras en localStorage ...");
+            carroComprasString = JSON.stringify(carroCompras);
+            localStorage.removeItem(sessionId);
+            localStorage.setItem(sessionId, carroComprasString);
+            console.log("Local storage actualizado.");
+            location.reload();
+        });
+    }
 }

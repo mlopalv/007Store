@@ -165,6 +165,10 @@
   text-align: center;
 }
 
+.inputAddToCart {
+  text-align: center;
+}
+
 .botonAddToCart {
   padding: 5px 10px;
   font-weight: bold;

@@ -49,7 +49,7 @@ window.onload = function () {
         } else {
             carroCompras = JSON.parse(localStorage.getItem(sessionId));
             console.log("Carro de compras ya existe para sesion. Buscando producto: " + idProducto);
-            console.log("Contenido del carro de compras: " + carroCompras.productos[0].id);
+            //console.log("Contenido del carro de compras: " + carroCompras.productos[0].id);
             
             let productoEncontrado = carroCompras.productos.find((element) => {
                 if(element != null){
