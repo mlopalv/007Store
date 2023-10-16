@@ -27,7 +27,7 @@ window.onload = function () {
                                                         "</section>",
                                                         "<section class=\"seccionDatosAdicionalesProducto\">",
                                                             "<article class=\"articuloDatoAdicionalProducto\">",
-                                                                "<span class=\"datoAdicionalDelProducto\"> Total price for these items: £ "+ producto.cantidad * producto.precio +" GBP</span>",
+                                                                "<span class=\"datoAdicionalDelProducto\"> Total price for these items: £ "+        producto.cantidad * producto.precio +" GBP</span>",
                                                             "</article>",
                                                             "<article class=\"articuloDatoAdicionalProducto\">",
                                                                 "<a id='hrefEliminarDeCarrito' name='"+producto.id+"' href='' class=\"datoAdicionalDelProducto\">",
