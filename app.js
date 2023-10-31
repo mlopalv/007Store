@@ -33,14 +33,22 @@ const rutasUsuarios = require('./routes/usuarios');
 const rutasMain = require("./routes/main");
 const cookieParser = require("cookie-parser");
 
+//Rutas para API
+const rutasUsauriosAPI = require("./routes/api/usuariosRoutesAPI");
+const rutasProductosAPI = require("./routes/api/productosRoutesAPI");
+
 
 //Uso de las rutas
 app.use(rutasMain);
 app.use(rutasProductos);
 app.use(rutasUsuarios);
 
+//Uso de rutas para API
+app.use(rutasUsauriosAPI);
+app.use(rutasProductosAPI);
 
-app.listen(3000, () => {
-    console.log("Servidor corriendo en puerto 3000");
+
+app.listen(3001, () => {
+    console.log("Servidor corriendo en puerto 3001");
     console.log("Folder Path = " + publicPath);
 });
