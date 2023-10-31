@@ -6,7 +6,7 @@ window.onload = function () {
     let divContainerProducto = document.querySelector("#sectionContainerProducto");
     let producto = null;
     let carroComprasString = null;
-    
+    let totalPrice = null;
     
     if (localStorage.getItem(sessionId) !== null) {
         carroCompras = JSON.parse(localStorage.getItem(sessionId));
@@ -27,7 +27,7 @@ window.onload = function () {
                                                         "</section>",
                                                         "<section class=\"seccionDatosAdicionalesProducto\">",
                                                             "<article class=\"articuloDatoAdicionalProducto\">",
-                                                                "<span class=\"datoAdicionalDelProducto\"> Total price for these items: £ "+        producto.cantidad * producto.precio +" GBP</span>",
+                                                                "<span class=\"datoAdicionalDelProducto\"> Total price for these items: £ "+ producto.cantidad * producto.precio +" GBP</span>",
                                                             "</article>",
                                                             "<article class=\"articuloDatoAdicionalProducto\">",
                                                                 "<a id='hrefEliminarDeCarrito' name='"+producto.id+"' href='' class=\"datoAdicionalDelProducto\">",
@@ -40,8 +40,21 @@ window.onload = function () {
                                                                 "</a>",
                                                             "</article>",
                                                         "</section>",
-                                                    "</section>");          
+                                                    "</section>");
+                                        
+            totalPrice = totalPrice + (producto.cantidad * producto.precio);
         }
+
+        //Sección para totalizar el pedido
+        divContainerProducto.innerHTML = divContainerProducto.innerHTML.concat("<section class=\"seccionImagenesDelProducto\">",
+                                                                                    "<section class=\"seccionImagenPrincipalProducto\">",            
+                                                                                "</section>",
+                                                                                "<section class=\"seccionDatosAdicionalesProducto\">",
+                                                                                    "<article class=\"articuloDatoAdicionalProducto\">",
+                                                                                        "<span class=\"datoAdicionalDelProducto\"> Total price for all items: £ "+ totalPrice +" GBP</span>",
+                                                                                    "</article>",                                                            
+                                                                                "</section>",
+                                                                                "</section>");
             
     }
     

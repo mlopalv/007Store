@@ -7,6 +7,7 @@ let bcrypt = require("bcryptjs");
 const methodOverride = require("method-override");
 const cookie = require('cookie-parser');
 const recordarMiddleware = require('./middlewares/recordarMiddleware');
+const asignarSesionAVistasMiddleware = require('./middlewares/asignarSessionAVistas');
 
 const publicPath = path.resolve(__dirname, "./public");
 /*Seccion app.use*/
@@ -25,6 +26,10 @@ app.use(session({secret: "Es un secreto"}));
 app.use(cookie());
 //Recordar la cookies y reabrir session
 app.use(recordarMiddleware);
+
+//Middleware para tener acceso al usuario en las vistas
+app.use(asignarSesionAVistasMiddleware);
+
 
 
 //Requerir las rutas
