@@ -1,6 +1,6 @@
 # 007Store
 ## A web site with merchnadise from the 007 franchise:
-##---------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
 ## 1 - Product administration (CRUD with sequilize as persistance manager) 
 ## 2 - User creation
 ## 3 - Authentication using bcrypt library
