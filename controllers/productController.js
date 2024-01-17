@@ -33,7 +33,7 @@ productController = {
             .then(inventario => {
                 console.log("Direccionando hacia productIndex");
                 console.log("El tamano del inventario es: " + inventario.length)
-                res.render("productIndex", { inventario });
+                res.render("productIndex", { inventario, isAdded:false, isEdited:false, isDeleted: false });
             });
     },
 
@@ -72,12 +72,11 @@ productController = {
 
             }).then(product => {
                 console.log("Producto agregado correctamente: " + product.name);
-            }
-            ).then(
+            }).then(
                 db.Product.findAll()
                     .then(inventario => {
                         console.log("Direccionando hacia productIndex");
-                        res.render("productIndex", { inventario });
+                        res.render("productIndex", { inventario, isAdded: true, isEdited: false, isDeleted: false });
                     })
             );
 
@@ -185,7 +184,15 @@ productController = {
                 }).then(producto => {
                     console.log("Actualización realizada corectamente: " + producto.id);
                     console.log("Producto actualizado correctamente.");
-                    res.redirect("/");
+                    //res.redirect("/");
+
+                    db.Product.findAll()
+                    .then(inventario => {
+                        console.log("Direccionando hacia productIndex");
+                        console.log("El tamano del inventario es: " + inventario.length)
+                        res.render("productIndex", { inventario, isAdded:false, isEdited:true, isDeleted: false });
+                    });
+                    //res.render("productIndex", {isAdded: false, isEdited: true});
                 });
         } else {
             console.log("La actualización del producto tiene algunos errores ... " + errors.errors.length);
@@ -233,7 +240,15 @@ productController = {
                 console.log("Eliminación de producto realizada corectamente: " + producto);
                 console.log("Tratando de borrar producto con image_path= " + producto.image_path);
                 fs.unlinkSync(path.resolve(__dirname, "../public/images/productos/" + producto.image_path));
-                res.redirect("/");
+                
+                db.Product.findAll()
+                .then(inventario => {
+                    console.log("Direccionando hacia productIndex");
+                    console.log("El tamano del inventario es: " + inventario.length)
+                    res.render("productIndex", { inventario, isAdded:false, isEdited:false, isDeleted: true });
+                });
+                
+                //res.redirect("/");
             });
     },
     

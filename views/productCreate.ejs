@@ -8,7 +8,7 @@
         <!-- para el dsplegar los errores recibidos desde el backend -->
         <% if(typeof errors !='undefined' ) { %>
           <div class="product-register-div-errors">
-            <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:
+            <p style="color: tomato; padding-bottom: 10px">There are some errors with the information provided:
             </p>
             <ul class="ul-nodots">
               <% for (let i=0; i < errors.length; i++) { %>
@@ -21,7 +21,7 @@
           <% } %>
             <!--Validaciones front end-->
             <div id="divErroresFrontEnd" class="register-div-errors">
-              <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:
+              <p style="color: tomato; padding-bottom: 10px">There are some errors with the information provided:
               </p>
               <ul id="ulErroresFrontEnd" class="ul-nodots">
 
@@ -30,8 +30,8 @@
 
             <form id="formularioRegistroProductos" action="/products/savenew" method="POST" class="formProductCreate"
               enctype="multipart/form-data">
-              <h3 class="headerDescripcionDelProducto">Registro de nuevo producto</h3>
-              <input id="formNombre" type="text" name="nombre" placeholder="Nombre del producto" class="formProductCreateEditTextInput"
+              <h3 class="headerDescripcionDelProducto">New product registry</h3>
+              <input id="formNombre" type="text" name="nombre" placeholder="Name" class="formProductCreateEditTextInput"
                 <% if(typeof oldData !='undefined' ) { %>
               value="<%= oldData.nombre %>"
                 <% } else { %>
@@ -40,10 +40,10 @@
                     >
                     <br>
                     <textarea id="formDescripcion" name="descripcion" rows="12" class="formProductCreateEditTextInput"
-                      placeholder="Descripción del producto"><% if(typeof oldData !='undefined' ) { %><%= oldData.descripcion.trim() %><% } %></textarea>
+                      placeholder="Description"><% if(typeof oldData !='undefined' ) { %><%= oldData.descripcion.trim() %><% } %></textarea>
                     <br>
                     <input id="formCosto" type="number" name="costo" class="formProductCreateEditTextInput"
-                      placeholder="Costo del producto" <% if(typeof oldData !='undefined' ) { %>
+                      placeholder="Price" <% if(typeof oldData !='undefined' ) { %>
                     value="<%= oldData.costo %>"
                       <% } else { %>
                         value=""
@@ -52,12 +52,12 @@
                           <br>
                           <select name="categoriaId" id="listadoCategorias" class="formProductCreateEditSelectInput"
                             required>
-                            <option value="-1" disabled selected>seleccione categoria</option>
+                            <option value="-1" disabled selected>Select category</option>
                             <% allCategories.forEach ( categoria=> { %>
                               <option value="<%= categoria.id %>"><%= categoria.description %></option>
                             <% }); %>
                           </select>
-                          <h3>Foto del producto</h3>
+                          <h3>Product image</h3>
                           <!--<img src="/images/productos/logo-2.png" class="imagenAdicionalDelProducto" />-->
                           <img src="/images/logo-2.png" id="previewImage"/>
                           <input type="hidden" name="oldImage" value="/images/logo-2.png">
@@ -65,8 +65,8 @@
                             value="/images/logo-2.png">
                           <br>
                           <br>
-                          <button type="submit">Enviar</button><br>
-                          <button type="reset">Borrar</button><br>
+                          <button type="submit">Create</button><br>
+                          <button type="reset">Clear</button><br>
             </form>
       </main>
       <%- include('./partials/footer') %>

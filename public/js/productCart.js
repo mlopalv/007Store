@@ -27,7 +27,8 @@ window.onload = function () {
                                                         "</section>",
                                                         "<section class=\"seccionDatosAdicionalesProducto\">",
                                                             "<article class=\"articuloDatoAdicionalProducto\">",
-                                                                "<span class=\"datoAdicionalDelProducto\"> Total price for these items: £ "+ producto.cantidad * producto.precio +" GBP</span>",
+                                                                "<span class=\"datoAdicionalDelProducto\"> Total price for these items: £ "+ producto.cantidad 
+                                                                                                * producto.precio.replace("£","").replace("GBP","").replace(" ","") +" GBP</span>",
                                                             "</article>",
                                                             "<article class=\"articuloDatoAdicionalProducto\">",
                                                                 "<a id='hrefEliminarDeCarrito' name='"+producto.id+"' href='' class=\"datoAdicionalDelProducto\">",
@@ -42,7 +43,7 @@ window.onload = function () {
                                                         "</section>",
                                                     "</section>");
                                         
-            totalPrice = totalPrice + (producto.cantidad * producto.precio);
+            totalPrice = totalPrice + (producto.cantidad * producto.precio.replace("£","").replace("GBP","").replace(" ",""));
         }
 
         //Sección para totalizar el pedido
@@ -78,12 +79,28 @@ window.onload = function () {
 
             //Actualizar carro de compras
             carroCompras.productos = productos;
-            console.log("Actualizando el carro de compras en localStorage ...");
-            carroComprasString = JSON.stringify(carroCompras);
-            localStorage.removeItem(sessionId);
-            localStorage.setItem(sessionId, carroComprasString);
-            console.log("Local storage actualizado.");
-            location.reload();
+            
+            swal({
+                title: "Product deleted from card",
+                text:  "Produdct successfully deleted from card!", 
+                type:  "info",
+                //showCancelButton: true,
+                confirmButtonColor: "#000000",
+                confirmButtonText: "Continue",
+                //timer: 4000,
+                //showConfirmButton: false                        
+            }).then((value) => {
+
+                console.log("Actualizando el carro de compras en localStorage ...");
+                carroComprasString = JSON.stringify(carroCompras);
+                localStorage.removeItem(sessionId);
+                localStorage.setItem(sessionId, carroComprasString);
+                console.log("Local storage actualizado.");
+                location.reload();
+
+            });
+
+            
         });
     }
 }

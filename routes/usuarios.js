@@ -7,35 +7,35 @@ const { check, validationResult, body } = require('express-validator');
 const usersController = require('../controllers/usersController');
 
 const validaciones = [
-    body("nombre").notEmpty().withMessage("BV: El nombre no puede estar vacío."),
-    body("nombre").isLength({min: 2}).withMessage("BV: El nombre debe tener mínimo dos caracteres."),
+    body("nombre").notEmpty().withMessage("BV: The name field should not be empty."),
+    body("nombre").isLength({min: 2}).withMessage("BV: The name field should have at least two characters."),
     
-    body("apellido").notEmpty().withMessage("BV: El apellido no puede estar vacío"),
-    body("apellido").isLength({min: 2}).withMessage("BV: El apellido debe tener mínimo dos caracteres."),
+    body("apellido").notEmpty().withMessage("BV: The last name field should not be empty."),
+    body("apellido").isLength({min: 2}).withMessage("BV: The last name field should have at least two characters."),
     
-    body("usuario").notEmpty().withMessage("BV: El nombre de usuario no puede estar vacío"),
+    body("usuario").notEmpty().withMessage("BV: The user name should not be emtpy."),
     
-    body("email").notEmpty().withMessage("BV: El valor ingresado de email es inválido."),
-    body("email").isEmail().withMessage("BV: El email ingresado no tiene una estructura correcta."),
+    body("email").notEmpty().withMessage("BV: The email address entered is not valid."),
+    body("email").isEmail().withMessage("BV: The email address entered doesn't have a valid email structure."),
     
-    body("pass1").notEmpty().withMessage("BV: Contraseña 1 vacía"),
-    body("pass1").isLength({min: 8}).withMessage("BV: La contraseña debe tener como mínimo 8 caracteres."),
-    body("pass2").notEmpty().withMessage("BV: Contraseña 2 vacía"),
+    body("pass1").notEmpty().withMessage("BV: Password number one is empty."),
+    body("pass1").isLength({min: 8}).withMessage("BV: The password should have at least 8 characters."),
+    body("pass2").notEmpty().withMessage("BV: Password number two is empty."),
     
     /** Validar que la contraseña coincide con la contraseña de control */
     body("pass1").custom ( (value, { req }) => {            
         return value === req.body.pass2;
      }
-    ).withMessage("BV: La contraseña ingresada y la contraseña de control no coinciden.")   
+    ).withMessage("BV: The password and the control password are not the same.")   
 ];
 
 const validacionesLogin  = [
     
-    body("email").notEmpty().withMessage("BV: El campo de email debe tener un valor."),
-    body("email").isEmail().withMessage("BV: El email ingresado no tiene una estructura correcta."),     
+    body("email").notEmpty().withMessage("BV: The email field should have a value."),
+    body("email").isEmail().withMessage("BV: The email address entered doesn't have a valid email structure."),     
     
-    body("password").notEmpty().withMessage("BV: El campo contraseña debe tener un valor. "),
-    body("password").isLength({min: 8}).withMessage("BV: La contraseña debe tener como mínimo 8 caracteres.")       
+    body("password").notEmpty().withMessage("BV: The password field should have a value."),
+    body("password").isLength({min: 8}).withMessage("BV: The password should have at least 8 characters.")       
     
 ];
 

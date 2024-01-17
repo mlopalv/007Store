@@ -1,3 +1,6 @@
+
+//let swal = require("sweetalert");
+
 window.onload = function () {
 
     let sessionId = "mlopalv@gmail.com";
@@ -30,6 +33,7 @@ window.onload = function () {
         let valorPrecioProducto = precioProducto.innerText;
         let valorRutaImagenProducto = rutaImagenProducto.getAttribute("src");
 
+        console.log("Precio del producto: " + valorPrecioProducto);
         console.log("Ruta de la imagen del producto: "+valorRutaImagenProducto);
 
         let producto = {
@@ -65,12 +69,23 @@ window.onload = function () {
                 console.log("El producto no existe en el carro de compras." + productoEncontrado);
                 carroCompras.productos.push(producto);
 
+
             } else {
                 
                 console.log("El producto si existe en el carro de compras. Actualizando cantidad.");
                 let indexProductoEncontrado = carroCompras.productos.indexOf(productoEncontrado);
                 carroCompras.productos[indexProductoEncontrado].cantidad = cantidadProducto;
             }
+
+            swal({
+                title: "Product added to card",
+                text:  "Produdct successfully added to card!", 
+                type:  "info",
+                //showCancelButton: true,
+                confirmButtonColor: "#000000",
+                confirmButtonText: "Continue"                        
+            });
+           
 
             console.log("Actualizando el carro de compras en localStorage ...");
             carroComprasString = JSON.stringify(carroCompras);

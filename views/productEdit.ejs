@@ -9,7 +9,7 @@
       <!-- Para el dsplegar los errores recibidos desde el backend -->
       <% if(typeof errors !='undefined' ) { %>
         <div class="product-register-div-errors">
-          <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:
+          <p style="color: tomato; padding-bottom: 10px">There are some errors with the information provided:
           </p>
           <ul class="ul-nodots">
             <% for (let i=0; i < errors.length; i++) { %>
@@ -22,19 +22,19 @@
         <% } %>
          <!--Validaciones front end-->
          <div id="divErroresFrontEnd" class="register-div-errors">
-          <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:
+          <p style="color: tomato; padding-bottom: 10px">There are some errors with the information provided:
           </p>
           <ul id="ulErroresFrontEnd" class="ul-nodots">
 
           </ul>
         </div>       
         <form id="formularioRegistroProductos" action="/products/<%=producto.id%>/?_method=PUT" method="POST" class="formProductCreate"clear enctype="multipart/form-data">
-            <h3 class="headerDescripcionDelProducto">Edición de producto</h3>
-            <input id="formNombre" type="text" name="name" placeholder="Nombre del producto" class="formProductCreateEditTextInput" value="<%=producto.name%>">
+            <h3 class="headerDescripcionDelProducto">Product edit</h3>
+            <input id="formNombre" type="text" name="name" placeholder="Name" class="formProductCreateEditTextInput" value="<%=producto.name%>">
             <br>
-            <textarea id="formDescripcion" name="description" rows="12" cols="50" class="formProductCreateEditTextInput" placeholder="Descripción del producto"><% if (producto.description !== null) {%><%=producto.description.trim()%><% } %></textarea>            
+            <textarea id="formDescripcion" name="description" rows="12" cols="50" class="formProductCreateEditTextInput" placeholder="Description"><% if (producto.description !== null) {%><%=producto.description.trim()%><% } %></textarea>            
             <br>
-            <input id="formCosto" type="number" name="price" class="formProductCreateEditTextInput" placeholder="Precio del producto"
+            <input id="formCosto" type="number" name="price" class="formProductCreateEditTextInput" placeholder="Price"
                 value="<%=producto.price%>">
             <br>
             <select name="categoriaId" id="listadoCategorias"  class="formProductCreateEditSelectInput" required>                  
@@ -56,10 +56,10 @@
            
             <br>            
             <br>                
-            <button type="submit">Guardar</button><br>            
+            <button type="submit">Save</button><br>            
         </form>
         <form action="/products/<%=producto.id%>/?_method=DELETE" method="POST" class="formProductCreate">
-          <button type="submit">Borrar producto</button><br>
+          <button type="submit">Delete product</button><br>
         </form>
     </main>
     <%- include('./partials/footer') %>

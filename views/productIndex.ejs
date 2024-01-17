@@ -2,31 +2,26 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>The 007 Convention</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">       
-        
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">   
-        
-        
-        <script src="https://kit.fontawesome.com/a215289790.js" crossorigin="anonymous"></script>
-        
-        <!--<link rel="stylesheet" href="/css/normalize.css">-->
-
-        <link rel="stylesheet" href="/css/styles.css">
-        
+        <title>007 Global Store</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">        
+        <script src="https://kit.fontawesome.com/a215289790.js" crossorigin="anonymous"></script>        
+        <link rel="stylesheet" href="/css/styles.css">        
         <link rel="stylesheet" href="/css/stylesProductIndex.css">
+        <!--Script y link para librería de sweet alert-->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
     </head>
     <body>
         <%- include('./partials/header') %>
         <main>
             <div class="prodindex-div-topsection">
-                <h1>Listado De Productos</h1>
+                <h1>Product list</h1>
             </div>
             <div>
                 <form action="/products/create">
-                    <input type="submit" value="AGREGAR ARTICULO" />
+                    <input type="submit" value="Add new product" />
                 </form>            
             </div>
            
@@ -62,7 +57,49 @@
                 </ul>
                 <% } %>
             </div>
-        </main>
+            <% if (isAdded != null && isAdded) { %>
+                <script>
+                    //import swal from 'sweetalert';
+                    //window.Swal = require('sweetalert2');                     
+                    swal({
+                        title: "Product created",
+                        text: "The product was successfully created!", 
+                        type: "info",
+                        //showCancelButton: true,
+                        confirmButtonColor: "#000000",
+                        confirmButtonText: "Continue"
+                        
+                    });
+               </script>
+               <% } else if (isEdited != null && isEdited) { %>
+                <script>
+                    //import swal from 'sweetalert';
+                    //window.Swal = require('sweetalert2');                     
+                    swal({
+                        title: "Product updated",
+                        text:  "The product was successfully updated!", 
+                        type:  "info",
+                        //showCancelButton: true,
+                        confirmButtonColor: "#000000",
+                        confirmButtonText: "Continue"                        
+                    });
+               </script>
+               <% } else if (isDeleted != null && isDeleted) { %>
+                <script>
+                    //import swal from 'sweetalert';
+                    //window.Swal = require('sweetalert2');                     
+                    swal({
+                        title: "Product deleted",
+                        text:  "The product was successfully deleted!", 
+                        type:  "info",
+                        //showCancelButton: true,
+                        confirmButtonColor: "#000000",
+                        confirmButtonText: "Continue"                        
+                    });
+               </script>
+               <% } %>%>
+             
+        </main>        
         <%- include('./partials/footer') %>
     </body>
 </html>

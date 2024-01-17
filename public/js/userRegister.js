@@ -23,33 +23,33 @@ window.onload = function () {
         ulErrores.innerHTML ="";
         
         if (nombre.value ==  "" ){
-            errores.push("FV: el campo nombre debe llevar un valor. ");
+            errores.push("FV: The name field should not be empty. ");
         } else if (nombre.value.length < 2){
-            errores.push("FV: el campo nombre debe ser mínimo de 2 caracteres. ");
+            errores.push("FV: The name field should have at least two characters. ");
         }
 
         if (apellido.value ==  "" ){
-            errores.push("FV: el campo apellido debe llevar un valor. ");
+            errores.push("FV: The last name field should not be empty. ");
         } else if (apellido.value.length < 2){
-            errores.push("FV: el campo apellido debe ser mínimo de 2 caracteres. ");
+            errores.push("FV:  The last name field should have at least two characters. ");
         }
 
         if (usuario.value ==  "" ){
-            errores.push("FV: el campo usuario debe llevar un valor. ");
+            errores.push("FV: The user name should not be emtpy. ");
         } else if (usuario.value.length < 4){
-            errores.push("FV: el campo usuario debe ser mínimo de 2 caracteres. ");
+            errores.push("FV: The user name field should have at least two characters. ");
         }
 
         if (email.value ==  "" ){
-            errores.push("FV: el campo email debe llevar un valor. ");
+            errores.push("FV: The email field should have a value. ");
         } else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)){
-            errores.push("FV: el campo email debe contenerun email válido. Ejemplo: john.doe@yahoo.com. ");
+            errores.push("FV: The email field should have a valid email structure. Example: john.doe@yahoo.com. ");
         }
 
         if (password1.value ==  "" ){
-            errores.push("FV: el campo password debe llevar un valor. ");
+            errores.push("FV: The field password should have a value. ");
         } else if (password1.value.length < 8){
-            errores.push("FV: el campo password debe ser mínimo de 8 caracteres. ");
+            errores.push("FV: The password field should have eight characters at least.");
         }
 
         
@@ -61,6 +61,7 @@ window.onload = function () {
             }
             
         }else {
+            
             formularioRegistroUsuarios.submit();
         }
 

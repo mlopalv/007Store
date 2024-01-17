@@ -19,22 +19,22 @@ window.onload = function () {
         ulErrores.innerHTML ="";
         
         if (nombre.value ==  "" ){
-            errores.push("FV: el campo nombre del producto debe llevar un valor. ");
+            errores.push("FV: The field product name should not be empty.");
         } else if (nombre.value.length < 5){
-            errores.push("FV: el campo nombre del producto debe ser mínimo de 5 caracteres. ");
+            errores.push("FV: The field product name should have at least five characters. ");
         }
         console.log("Valor de descripcion: " + descripcion.innerHTML);
         console.log("Valor de descripcion: " + descripcion.value);
         if (descripcion.value.trim() ==  "" ){
-            errores.push("FV: el campo descripción del producto debe llevar un valor. ");
+            errores.push("FV: The field product description should have a value. ");
         } else if (descripcion.value.trim().length < 20){
-            errores.push("FV: el campo descripción del producto debe ser mínimo de 20 caracteres. ");
+            errores.push("FV: The field product description should have at least 20 characters. ");
         }
         
         if (costo.value ==  "" ){
-            errores.push("FV: el campo precio del producto debe llevar un valor. ");
+            errores.push("FV: The field product price should have a value. ");
         } else if (parseFloat(costo.value) <= 0){
-            errores.push("FV: el precio del producto no puede ser menor o igual a $0. ");
+            errores.push("FV: The product price should be greater than or equal to $0. ");
         }  
 
         if(errores.length > 0){

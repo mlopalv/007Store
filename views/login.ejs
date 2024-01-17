@@ -6,7 +6,7 @@
         <main>
             <% if(typeof errors != 'undefined') { %>
                 <div class="login-div-errors">
-                    <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:</p>
+                    <p style="color: tomato; padding-bottom: 10px">There are some errors with the information provided:</p>
                     <ul class="ul-nodots">
                         <% for (let i=0; i < errors.length; i++) { %>
                             <li>
@@ -18,17 +18,17 @@
             <% } %>
             <!--Validaciones front end-->
             <div id="divErroresFrontEnd" class="register-div-errors">
-                <p style="color: tomato; padding-bottom: 10px">Existen algunos errores con la información que ingresaste:</p>
+                <p style="color: tomato; padding-bottom: 10px">There are some errors with the information provided:</p>
                 <ul id="ulErroresFrontEnd" class="ul-nodots">                    
                 
                 </ul>
             </div>        
             <form id="formularioLoginUsuarios" action="/users/login" method="POST" class="form-reg-user">
-                <input id="formEmail" type="text" name="email" placeholder="Correo de usuario" class="regular-text">
+                <input id="formEmail" type="text" name="email" placeholder="User email" class="regular-text">
                 <br>
-                <input id="formPassword" type="password" name="password" placeholder="Contrasena" class="regular-text">
+                <input id="formPassword" type="password" name="password" placeholder="Password" class="regular-text">
                 <br>
-                <label class="label">Recordarme</label>
+                <label class="label">Remember me</label>
                 <input type="checkbox" name="recordar" class="check">
                 <br>
                 <button id="botonSubmitFormulario" type="submit" class="but-submit">Login</button><br>

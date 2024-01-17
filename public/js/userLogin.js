@@ -21,16 +21,16 @@ window.onload = function () {
         
           
         if (email.value ==  "" ){
-            errores.push("FV: el campo email debe llevar un valor. ");
+            errores.push("FV: The email field should not be empty. ");
         } else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)){
-            errores.push("FV: el campo email debe contenerun email válido. Ejemplo: john.doe@yahoo.com. ");
+            errores.push("FV: The email field should have a valid email structure. Example: john.doe@yahoo.com. ");
         }
 
        
         if (password.value ==  "" ){
-            errores.push("FV: el campo password debe llevar un valor. ");
+            errores.push("FV: The field password should have a value. ");
         } else if (password.value.length < 8){
-            errores.push("FV: el campo password debe ser mínimo de 8 caracteres. ");
+            errores.push("FV: The password field should have eight characters at least. ");
         }       
 
         if(errores.length > 0){

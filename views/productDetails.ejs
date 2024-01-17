@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ <!--Script y link para librería de sweet alert-->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+ <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link> 
 <html>
 <%- include('./partials/head') %>
 
@@ -56,7 +58,7 @@
               </article>
               <!--Precion del producto-->
               <article class="articlePrecioProducto" id="precioProducto">
-                <%=producto.price%>
+                £ <%=producto.price%> GBP
               </article>
             </section>
             <!--sección de adicionar a tarjeta-->

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
     <head>
         <%- include('./partials/head') %>
     </head>
@@ -8,17 +10,17 @@
         <main>
             <% if(locals.userData && userData.name) { %>
                 <div class="profile-div-h2">
-                    <h2>Perfil del miembro</h2>
+                    <h2>Your profile</h2>
                 </div>
                 <div class="profile-div-main">
                     <div class="profile-div-black">
-                        <p>Nombre:</p>
+                        <p>Name:</p>
                     </div>
                     <div class="profile-div-white">
                         <p><%= userData.name %></p>
                     </div> 
                     <div class="profile-div-black">
-                        <p>Apellido:</p>
+                        <p>Last name:</p>
                     </div>
                     <div class="profile-div-white">
                         <p><%= userData.last_name %></p>
@@ -30,7 +32,7 @@
                         <p><%= userData.login_name %></p>
                     </div> 
                     <div class="profile-div-black">
-                        <p>Correo electrónico:</p>
+                        <p>E-mail:</p>
                     </div>
                     <div class="profile-div-white">
                         <p><%= userData.email %></p>
@@ -38,16 +40,31 @@
                 </div>
                 <div class="profile-div-h2">
                     <form action="/users/logout" method="GET">
-                        <button type="submit" class="but-submit">Cerrar sesión</button><br>
+                        <button type="submit" class="but-submit">Close session</button><br>
                     </form>
-                </div>                
+                </div> 
+                <% if (isAdded != null && isAdded) { %>
+                    <script>
+                        //import swal from 'sweetalert';
+                        //window.Swal = require('sweetalert2');                     
+                        swal({
+                            title: "Profile created",
+                            text: "Welcome, your profile has been created!", 
+                            type: "info",
+                            //showCancelButton: true,
+                            confirmButtonColor: "#000000",
+                            confirmButtonText: "Continue",
+                            closeOnClickOutside: false
+                        });
+                   </script>
+                   <% } %>               
             <% } else { %>
                 <div class="profile-div-h2">
-                    <h2>Usuario no registrado aun</h2>
+                    <h2>The user is not yet registered.</h2>
                 </div>
             <% } %>                         
         </main>
         <%- include('./partials/footer') %>
-        <p style="text-align:left">Copyright &copy; 2023 Convenciones Internacionales S.R.L.</p>  
+        <p style="text-align:left">Copyright &copy; 2024 Supersymmetry Labs</p>  
     </body>
 </html>

@@ -1,8 +1,10 @@
+//const swal = require('sweetalert');
 const fs = require('fs');
 let db = require("../database/models");
 const { validationResult } = require('express-validator');
 const path = require('path');
 let bcrypt = require("bcryptjs");
+const swal = require('sweetalert');
 
 
 const usersController = {
@@ -10,7 +12,7 @@ const usersController = {
     register: function (req, res) {
         //Verificar si tiene sesión iniciada
         if(req.session.usuarioLogueado){
-            return res.render("profile", { userData: req.session.usuarioLogueado })
+            return res.render("profile", { userData: req.session.usuarioLogueado, isAdded: false })
         }else{
             return res.render('register');
         }
@@ -53,10 +55,13 @@ const usersController = {
 
             }).then(user => {
                 console.log("Usuario agregado correctamente: " + user.name);
+                
                 return user;
             }).then(user => {
                 console.log("Direccionando hacia perfil de usuario ..." + user.id + " " + user.name);
-                res.render("profile", { userData: user });
+                //swal("User registry completed.");
+                console.log("swal ejecutado.");
+                res.render("profile", { userData: user, isAdded:true });
             });           
 
         } else {
@@ -71,9 +76,9 @@ const usersController = {
     login: function (req, res) {
         //Verificar si tiene sesión iniciada
         if(req.session.usuarioLogueado){
-            return res.render("profile", { userData: req.session.usuarioLogueado })
+            return res.render("profile", { userData: req.session.usuarioLogueado, isAdded: false })
         }else{
-            return res.render("login");
+            return res.render("login", {isAdded: false});
         }
        
     },
@@ -106,13 +111,15 @@ const usersController = {
                                 console.log("El usuario no quiere ser recordado.");
                             }
                             console.log("Redireccionando nuevamente a profile ...");
-                            res.redirect("/users/profile");
+                            //Login procesado correctamente
+                            //res.redirect("/users/profile");
+                            return res.render("profile", {userData: req.session.usuarioLogueado, isAdded:false});
 
                         } else {
                             console.log("Contraseña inválida.");
                             return res.render("login", {
                                 errors: [
-                                    { msg: "Usuario o contraseña inválidos." }
+                                    { msg: "Invalid user or password." }
                                 ]
                             })
                         }
@@ -122,7 +129,7 @@ const usersController = {
 
                         return res.render("login", {
                             errors: [
-                                { msg: "Usuario o contraseña inválidos." }
+                                { msg: "Invalid user or password." }
                             ]
                         })
                     }

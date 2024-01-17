@@ -9,6 +9,11 @@ const cookie = require('cookie-parser');
 const recordarMiddleware = require('./middlewares/recordarMiddleware');
 const asignarSesionAVistasMiddleware = require('./middlewares/asignarSessionAVistas');
 
+/*Lybraries to work with swagger*/
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc');
+
+
 const publicPath = path.resolve(__dirname, "./public");
 /*Seccion app.use*/
 app.use(express.static(publicPath));
@@ -31,6 +36,9 @@ app.use(recordarMiddleware);
 app.use(asignarSesionAVistasMiddleware);
 
 
+  
+
+
 
 //Requerir las rutas
 const rutasProductos = require('./routes/productos');
@@ -42,6 +50,35 @@ const cookieParser = require("cookie-parser");
 const rutasUsauriosAPI = require("./routes/api/usuariosRoutesAPI");
 const rutasProductosAPI = require("./routes/api/productosRoutesAPI");
 
+
+//Configuración de Swagger para documentar las API
+const swaggerOptions = {
+    definition: {
+      openapi: '3.0.0',
+      info: {
+        title: '007 Store API',
+        version: '1.0.0',
+        description: 'An API to get product and customer information from the global 007 Store site.',
+        contact: {
+            name: "Mauricio Lopez",
+            email: "mlopalv@gmail.com",
+            url: "https://github.com/mlopalv/"
+          },
+      },
+      servers: [
+        {
+          url: 'http://localhost:3001',
+          description: "Local server"
+        },
+      ],
+    },
+    //apis: ['./Grupo_2_Proyecto007/routes/api*.js'],
+    apis: ["./routes/api/*.js"]
+  };
+  
+  
+  const swaggerDocs = swaggerJsDoc(swaggerOptions);
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 //Uso de las rutas
 app.use(rutasMain);
