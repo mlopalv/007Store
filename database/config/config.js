@@ -1,9 +1,9 @@
 module.exports ={
   "development": {
-    "username": "root",
-    "password": "Darkstar7q",
-    "database": "007storedb",
-    "host": "127.0.0.1",
+    "username": "avnadmin",
+    "password": "AVNS_ka_osaDp0lyXrd2mcYs",
+    "database": "defaultdb",
+    "host": "mysql-8f6419b-global007store.c.aivencloud.com",
     "dialect": "mysql"
   },
   "test": {
