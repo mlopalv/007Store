@@ -8,11 +8,11 @@ const productControllerAPI = require("../../controllers/api/productControllerAPI
  *  get:
  *     tags:
  *     - Products Controller 
- *     summary: get the list of products available in the inventory.
- *     description:  gets the list of products available in the inventory.
+ *     summary: Get the list of products available in the inventory.
+ *     description:  Gets the list of products available in the inventory. If the data is succesfully obtained, the operation will return two arrays, countByCategory each array element contain the category and the quantity of products per category and data each array element contain the details of each product in the inventory {id, name, description, price, category, imagePath, detail}.
  *     responses:
  *       200:
- *        description: Fetched Successfully.
+ *        description: Fetched Successfully. The operation will return two arrays, countByCategory each array element contain the category and the quantity of products per category and data each array element contain the details of each product in the inventory {id, name, description, price, category, imagePath, detail}.
  *       400:
  *        description: Bad Request.
  *       404:
@@ -27,8 +27,8 @@ router.get('/api/products', productControllerAPI.list);
  *  get:
  *     tags:
  *     - Products Controller
- *     summary: gets a product by product id.
- *     description: gets a product by product id.
+ *     summary: Gets a product by product id.
+ *     description: Gets a product by product id.
  *     parameters:
  *      - name: id
  *        in: path

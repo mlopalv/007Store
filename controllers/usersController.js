@@ -42,6 +42,7 @@ const usersController = {
 
             let passOriginal = bcrypt.hashSync(req.body.pass1, 10);
             let passControl = bcrypt.hashSync(req.body.pass2, 10);
+            bcrypt.
             usuarioARegistrar.password1 = passOriginal;
             usuarioARegistrar.password2 = passControl;
 

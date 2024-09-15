@@ -8,8 +8,8 @@ const usersControllerAPI = require("../../controllers/api/usersControllerAPI");
  *  get:
  *     tags:
  *     - User Controller 
- *     summary: get the list of existent users in the application.
- *     description:  gets the list of existent users in the application.
+ *     summary: Gets the list of existent users in the application.
+ *     description:  Gets the list of existent users in the application.
  *     responses:
  *      200:
  *        description: Fetched Successfully
@@ -27,8 +27,8 @@ router.get('/api/users', usersControllerAPI.list);
  *  get:
  *     tags:
  *     - User Controller
- *     summary: gets a user by user id.
- *     description:  gets a user by user id.
+ *     summary: Gets a user by user id.
+ *     description: Gets a user by user id.
  *     parameters:
  *      - name: id
  *        in: path

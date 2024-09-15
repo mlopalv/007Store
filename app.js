@@ -3,22 +3,26 @@ const app = express();
 const path = require("path");
 let session = require('express-session');
 let bcrypt = require("bcryptjs");
+
 /* Importamos method-override para poder usar acciones PUT y DELETE desde los formularios HTML */
 const methodOverride = require("method-override");
 const cookie = require('cookie-parser');
 const recordarMiddleware = require('./middlewares/recordarMiddleware');
 const asignarSesionAVistasMiddleware = require('./middlewares/asignarSessionAVistas');
+const cors = require("cors");
 
 /*Lybraries to work with swagger*/
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 
-
 const publicPath = path.resolve(__dirname, "./public");
+/*Seteo de accesos CORS*/
+app.use(express.json());
+app.use(cors({ "Access-Control-Allow-Origin" : "http://localhost:3000/" }));
 /*Seccion app.use*/
 app.use(express.static(publicPath));
 //Configuracion para procesamiento de envios POST
-app.use(express.json());
+//app.use(express.json());
 //Uso de method-override dentro de esta aplicacion
 app.use(methodOverride("_method"));
 //URL encode  - Para que nos pueda llegar la información desde el formulario al req.body
@@ -27,18 +31,13 @@ app.use(express.urlencoded({ extended: false }));
 app.set('view engine','ejs');
 //Indicacion del uso de la session
 app.use(session({secret: "Es un secreto"}));
-//Las cookies
+//Las cookiesnp
 app.use(cookie());
 //Recordar la cookies y reabrir session
 app.use(recordarMiddleware);
 
 //Middleware para tener acceso al usuario en las vistas
 app.use(asignarSesionAVistasMiddleware);
-
-
-  
-
-
 
 //Requerir las rutas
 const rutasProductos = require('./routes/productos');
