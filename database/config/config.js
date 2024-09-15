@@ -4,24 +4,27 @@ const db_pass = process.env.DB_PASS;
 module.exports ={
   
   "development": {
-    "username": "root",
+    "username": "avnadmin",
     "password": db_pass,
-    "database": "007storedb",
-    "host": "127.0.0.1",
+    "database": "defaultdb",
+    "host": "mysql-8f6419b-global007store.c.aivencloud.com",
+    "port":"14974",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
+   "username": "avnadmin",
     "password": db_pass,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "database": "defaultdb",
+    "host": "mysql-8f6419b-global007store.c.aivencloud.com",
+    "port":"14974",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": "avnadmin",
     "password": db_pass,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "database": "defaultdb",
+    "host": "mysql-8f6419b-global007store.c.aivencloud.com",
+    "port":"14974",
     "dialect": "mysql"
   }
 }
