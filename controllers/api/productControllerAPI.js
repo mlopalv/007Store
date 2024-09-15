@@ -26,7 +26,7 @@ const productControllerAPI = {
                         description: producto.description,
                         precio: producto.price,  
                         categorie: producto.category.description,
-                        imagePath: "http://localhost:3001/images/productos/" + producto.image_path,                      
+                        imagePath: "/images/productos/" + producto.image_path,                      
                         detail: "api/productos/:"+producto.id
                     }   
                     return product;                    
