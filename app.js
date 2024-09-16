@@ -69,6 +69,10 @@ const swaggerOptions = {
           url: 'http://localhost:3001',
           description: "Local server"
         },
+        {
+          url: 'http://https://zero07globalstore.onrender.com',
+          description: "Render server"
+        },
       ],
     },
     //apis: ['./Grupo_2_Proyecto007/routes/api*.js'],
