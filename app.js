@@ -70,7 +70,7 @@ const swaggerOptions = {
           description: "Local server"
         },
         {
-          url: 'http://https://zero07globalstore.onrender.com',
+          url: 'https://zero07globalstore.onrender.com',
           description: "Render server"
         },
       ],
